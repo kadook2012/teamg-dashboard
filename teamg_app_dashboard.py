@@ -6,20 +6,29 @@ from supabase import create_client
 import os
 from dotenv import load_dotenv
 
-# --- 1. SETTING & THEME (V.10 STYLE) ---
+# --- 1. SETTING & THEME (ปรับปรุงสีเพื่อการอ่านที่ง่ายขึ้น) ---
 load_dotenv()
 st.set_page_config(layout="wide", page_title="TEAMG Strategic Dashboard")
 
-# Custom CSS เพื่อรักษาหน้าตาแบบ V.10
 st.markdown("""
     <style>
+    /* ปรับปรุงกล่อง Metric ให้ตัวหนังสือหัวข้อ (Label) เห็นชัดขึ้น */
     [data-testid="stMetric"] {
-        background-color: #1e293b;
-        border: 1px solid #334155;
+        background-color: #1e293b; 
+        border: 1px solid #475569;
         padding: 20px;
         border-radius: 12px;
     }
-    [data-testid="stMetricValue"] { color: #00ff88 !important; }
+    /* บังคับให้ Label (ชื่อหัวข้อเล็กๆ) เป็นสีขาวสว่าง */
+    [data-testid="stMetricLabel"] {
+        color: #f8fafc !important;
+        font-weight: 500 !important;
+        font-size: 14px !important;
+    }
+    /* สีของตัวเลขหลัก */
+    [data-testid="stMetricValue"] { 
+        color: #00ff88 !important; 
+    }
     .news-card {
         background-color: #0f172a;
         padding: 15px;
@@ -39,16 +48,11 @@ supabase = create_client(url, key)
 
 @st.cache_data(ttl=10)
 def load_all_data():
-    # ดึงข้อมูลจาก Supabase 2000 แถว (ครอบคลุม 5 ปี)
     m_res = supabase.table("teamg_master_analysis").select("*").order("date", desc=True).limit(2000).execute()
     n_res = supabase.table("teamg_news_headers").select("*").order("date", desc=True).limit(8).execute()
-    
     df_raw = pd.DataFrame(m_res.data)
     df_raw.columns = [col.lower() for col in df_raw.columns]
-    
-    # สำหรับกราฟต้องการ อดีต -> ปัจจุบัน
     df_plot = df_raw.sort_values("date", ascending=True)
-    
     return df_raw, df_plot, pd.DataFrame(n_res.data)
 
 df_raw, df_plot, news_df = load_all_data()
@@ -82,34 +86,27 @@ fig = make_subplots(
     subplot_titles=("Price & AI Pivot High", "RSI Momentum", "MACD Trend", "Z-Score")
 )
 
-# Row 1: Price & EMA
 fig.add_trace(go.Candlestick(x=df_plot['date'], open=df_plot['open'], high=df_plot['high'], low=df_plot['low'], close=df_plot['close'], name='Price'), row=1, col=1)
 fig.add_trace(go.Scatter(x=df_plot['date'], y=df_plot['ema_50'], name='EMA 50', line=dict(color='orange', width=1)), row=1, col=1)
 fig.add_trace(go.Scatter(x=df_plot['date'], y=df_plot['ema_200'], name='EMA 200', line=dict(color='red', width=1.5)), row=1, col=1)
 
-# AI Pivot
 if 'is_pivot_high' in df_plot.columns:
     pivots = df_plot[df_plot['is_pivot_high'] == True]
     fig.add_trace(go.Scatter(x=pivots['date'], y=pivots['high']*1.02, mode='markers', marker=dict(color='#00e5ff', size=7, symbol='diamond'), name='AI Pivot'), row=1, col=1)
 
-# Row 2: RSI
 fig.add_trace(go.Scatter(x=df_plot['date'], y=df_plot['rsi'], name='RSI', line=dict(color='purple')), row=2, col=1)
-fig.add_hline(y=70, line_dash="dot", line_color="red", row=2, col=1)
-fig.add_hline(y=30, line_dash="dot", line_color="green", row=2, col=1)
+fig.add_hline(y=70, line_dash="dot", line_color="red", row=2, col=1); fig.add_hline(y=30, line_dash="dot", line_color="green", row=2, col=1)
 
-# Row 3: MACD
 fig.add_trace(go.Bar(x=df_plot['date'], y=df_plot['macd_hist'], name='MACD Hist'), row=3, col=1)
 fig.add_trace(go.Scatter(x=df_plot['date'], y=df_plot['macd'], name='MACD Line', line=dict(color='blue')), row=3, col=1)
 
-# Row 4: Z-Score
 fig.add_trace(go.Scatter(x=df_plot['date'], y=df_plot['z_score'], name='Z-Score', fill='tozeroy', line=dict(color='#00e5ff')), row=4, col=1)
-fig.add_hline(y=2, line_dash="dash", line_color="red", row=4, col=1)
-fig.add_hline(y=-2, line_dash="dash", line_color="green", row=4, col=1)
+fig.add_hline(y=2, line_dash="dash", line_color="red", row=4, col=1); fig.add_hline(y=-2, line_dash="dash", line_color="green", row=4, col=1)
 
 fig.update_layout(height=1100, template='plotly_dark', xaxis_rangeslider_visible=False)
 st.plotly_chart(fig, use_container_width=True)
 
-# --- 6. BOTTOM SECTION: NEWS TIMELINE (V.10 Style) ---
+# --- 6. BOTTOM SECTION: NEWS TIMELINE ---
 st.write("---")
 st.subheader("📰 Market Intelligence Timeline")
 if not news_df.empty:
@@ -128,14 +125,12 @@ if not news_df.empty:
                         </div>
                     """, unsafe_allow_html=True)
 
-# --- 7. RAW DATA EXPLORER (With Units) ---
+# --- 7. RAW DATA EXPLORER ---
 with st.expander("🔍 Raw Data Explorer (Latest -> Past)", expanded=True):
-    # ปรับชื่อคอลัมน์สำหรับการแสดงผล
     display_map = {
         "date": "Date", "close": "Close (THB)", "rsi": "RSI (14)", 
         "z_score": "Z-Score", "ema_50": "EMA50", "ema_200": "EMA200", 
         "roe": "ROE (%)", "net_margin": "Net Margin (%)", "asset_turnover": "ATO (x)"
     }
-    # แสดงคอลัมน์ที่เลือกและเรียงล่าสุดอยู่บน
     df_view = df_raw.rename(columns=display_map)
     st.dataframe(df_view[[v for k, v in display_map.items() if k in df_raw.columns]], use_container_width=True)
