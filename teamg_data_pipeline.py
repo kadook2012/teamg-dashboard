@@ -13,18 +13,17 @@ supabase = create_client(url, key)
 
 def get_and_process_data():
     print("🚀 Downloading TEAMG 5-year data...")
-    # ดึงข้อมูลย้อนหลัง 5 ปีตามสั่ง
     df = yf.download("TEAMG.BK", period="5y", interval="1d")
     
     if df.empty: return
 
     if isinstance(df.columns, pd.MultiIndex):
         df.columns = df.columns.get_level_values(0)
-    
     df = df.reset_index()
     df.columns = [col.lower() for col in df.columns]
 
-    # --- Technical Analysis (V.11) ---
+    # --- Technical Analysis (V.11.1) ---
+    print("📊 Calculating Technical & Stat Indicators...")
     df['ema_50'] = ta.ema(df['close'], length=50)
     df['ema_200'] = ta.ema(df['close'], length=200)
     df['rsi'] = ta.rsi(df['close'], length=14)
@@ -38,11 +37,15 @@ def get_and_process_data():
     df['stoch_k'] = stoch['STOCHk_14_3_3']
     df['stoch_d'] = stoch['STOCHd_14_3_3']
     
-    # --- Statistics & Volume Analysis ---
+    # --- Statistics & Volume ---
     df['vol_ema20'] = ta.ema(df['volume'], length=20)
     df['rel_vol'] = df['volume'] / df['vol_ema20']
     df['z_score'] = (df['close'] - df['close'].rolling(20).mean()) / df['close'].rolling(20).std()
 
+    # ✨ ป้องกัน Error: ใส่ค่า TEAMG ในคอลัมน์ symbol
+    df['symbol'] = 'TEAMG'
+
+    # ลบแถวที่ยังคำนวณ Indicator ไม่ได้ (เช่น 200 วันแรกของ EMA200)
     df = df.dropna()
 
     data_dict = df.to_dict(orient='records')
@@ -50,7 +53,7 @@ def get_and_process_data():
         record['date'] = record['date'].strftime('%Y-%m-%d')
 
     try:
-        # ใช้ชื่อตารางตามไบเบิลที่คุณสกายตั้งไว้
+        # อัปเดตเข้าตารางมาสเตอร์ตาม Bible
         supabase.table("teamg_master_analysis").upsert(data_dict).execute()
         print(f"✅ Successfully updated 'teamg_master_analysis' with {len(df)} rows!")
     except Exception as e:

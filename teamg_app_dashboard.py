@@ -16,19 +16,19 @@ supabase = create_client(url, key)
 
 @st.cache_data(ttl=3600)
 def load_data():
-    # ดึงข้อมูลจากตารางมาสเตอร์ตามรูป Bible
     response = supabase.table("teamg_master_analysis").select("*").order("date", desc=False).execute()
     return pd.DataFrame(response.data)
 
 df = load_data()
+df.columns = [col.lower() for col in df.columns]
 
-st.title("🏹 TEAMG Strategic Analysis (V.11)")
-st.write(f"Data period: 5 Years | Latest update: {df['date'].iloc[-1]}")
+st.title("🏹 TEAMG Strategic Analysis (Bible V.11.1)")
+st.write(f"Period: 5 Years | Latest update: {df['date'].iloc[-1]}")
 
 # --- กราฟ Technical วิเคราะห์ 3 ชั้น ---
 fig = make_subplots(rows=3, cols=1, shared_xaxes=True, 
                     vertical_spacing=0.05, row_heights=[0.5, 0.25, 0.25],
-                    subplot_titles=("Price & EMA", "RSI Momentum", "MACD Trend"))
+                    subplot_titles=("Price & EMA (50/200)", "RSI Momentum", "MACD Trend"))
 
 # 1. Price + EMA 50/200
 fig.add_trace(go.Candlestick(x=df['date'], open=df['open'], high=df['high'], 
@@ -48,12 +48,22 @@ fig.add_trace(go.Scatter(x=df['date'], y=df['macd'], name='MACD Line', line=dict
 fig.update_layout(height=900, xaxis_rangeslider_visible=False, template="plotly_dark")
 st.plotly_chart(fig, use_container_width=True)
 
-# --- Statistical Scoreboard ---
-st.subheader("📌 Key Strategic Indicators")
-c1, c2, c3, c4 = st.columns(4)
-c1.metric("EMA 200 Status", "Bullish" if df['close'].iloc[-1] > df['ema_200'].iloc[-1] else "Bearish")
-c2.metric("RSI (14)", f"{df['rsi'].iloc[-1]:.2f}")
-c3.metric("Z-Score (Volatility)", f"{df['z_score'].iloc[-1]:.2f}")
-c4.metric("Rel. Volume (20D)", f"{df['rel_vol'].iloc[-1]:.2fx}")
+# --- Scoreboard Section ---
+st.subheader("📌 Key Strategic Indicators (Latest Data)")
+df_clean = df.dropna(subset=['ema_200', 'rsi', 'z_score'])
+
+if not df_clean.empty:
+    last = df_clean.iloc[-1]
+    c1, c2, c3, c4 = st.columns(4)
+    
+    status = "Bullish" if last['close'] > last['ema_200'] else "Bearish"
+    delta_val = last['close'] - last['ema_200']
+    
+    c1.metric("EMA 200 Status", status, delta=f"{delta_val:.2f}")
+    c2.metric("RSI (14)", f"{last['rsi']:.2f}")
+    c3.metric("Z-Score (Volatility)", f"{last['z_score']:.2f}")
+    c4.metric("Rel. Vol (20D)", f"{last['rel_vol']:.2fx}")
+else:
+    st.warning("⚠️ Waiting for more historical data to calculate indicators...")
 
 st.dataframe(df.tail(30))
