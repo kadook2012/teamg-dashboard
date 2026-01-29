@@ -62,8 +62,22 @@ if not df_clean.empty:
     c1.metric("EMA 200 Status", status, delta=f"{delta_val:.2f}")
     c2.metric("RSI (14)", f"{last['rsi']:.2f}")
     c3.metric("Z-Score (Volatility)", f"{last['z_score']:.2f}")
-    c4.metric("Rel. Vol (20D)", f"{last['rel_vol']:.2fx}")
+    # --- Scoreboard Section (แก้ไขจุด Error Formatting) ---
+st.subheader("📌 Key Strategic Indicators (Latest Data)")
+df_clean = df.dropna(subset=['ema_200', 'rsi', 'z_score', 'rel_vol']) # เพิ่ม rel_vol ในการเช็คค่าว่างด้วย
+
+if not df_clean.empty:
+    last = df_clean.iloc[-1]
+    c1, c2, c3, c4 = st.columns(4)
+    
+    status = "Bullish" if last['close'] > last['ema_200'] else "Bearish"
+    delta_val = last['close'] - last['ema_200']
+    
+    c1.metric("EMA 200 Status", status, delta=f"{delta_val:.2f}")
+    c2.metric("RSI (14)", f"{last['rsi']:.2f}")
+    c3.metric("Z-Score (Volatility)", f"{last['z_score']:.2f}")
+    
+    # แก้ไขตรงนี้ครับ: เอา x ออกจาก f-string format
+    c4.metric("Rel. Vol (20D)", f"{last['rel_vol']:.2f}x") 
 else:
     st.warning("⚠️ Waiting for more historical data to calculate indicators...")
-
-st.dataframe(df.tail(30))
