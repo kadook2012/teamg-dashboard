@@ -1,70 +1,60 @@
 import yfinance as yf
 import pandas as pd
-import numpy as np
+import pandas_ta as ta
 from supabase import create_client
 import os
 from dotenv import load_dotenv
 
-# 1. Setup Connection
 load_dotenv()
-supabase = create_client(os.getenv("SUPABASE_URL"), os.getenv("SUPABASE_KEY"))
 
-def calculate_ai_pivots(df, window=5):
-    """คำนวณจุดยอด (Pivot High) เพื่อติ๊กถูกในฐานข้อมูล"""
-    df = df.copy()
-    df['is_pivot_high'] = False
-    for i in range(window, len(df) - window):
-        current_high = df.iloc[i]['high']
-        left_max = df.iloc[i-window:i]['high'].max()
-        right_max = df.iloc[i+1:i+window+1]['high'].max()
-        if current_high > left_max and current_high > right_max:
-            df.at[df.index[i], 'is_pivot_high'] = True
-    return df
+url = os.getenv("SUPABASE_URL")
+key = os.getenv("SUPABASE_KEY")
+supabase = create_client(url, key)
 
-def run_pipeline():
-    print("🛰️ ดึงข้อมูล TEAMG.BK พร้อมคำนวณ Fundamental & AI Logic...")
-    ticker = yf.Ticker("TEAMG.BK")
-    info = ticker.info
+def get_and_process_data():
+    print("🚀 Downloading TEAMG 5-year data...")
+    # ดึงข้อมูลย้อนหลัง 5 ปีตามสั่ง
+    df = yf.download("TEAMG.BK", period="5y", interval="1d")
     
-    # Fundamental Data
-    mkt_cap = info.get('marketCap')
-    ev_ebitda = info.get('enterpriseToEbitda')
-    h_52w = info.get('fiftyTwoWeekHigh')
-    l_52w = info.get('fiftyTwoWeekLow')
-    total_shares = info.get('sharesOutstanding')
-    float_shares = info.get('floatShares')
-    free_float_val = (float_shares / total_shares * 100) if float_shares and total_shares else None
+    if df.empty: return
 
-    # ดึงข้อมูลย้อนหลัง 2 ปี (ครอบคลุมถึงปัจจุบันปี 2026)
-    hist = ticker.history(period="2y")
-    df = hist.reset_index()
-    df.columns = [c.lower() for c in df.columns]
-    df['date'] = df['date'].dt.strftime('%Y-%m-%d')
+    if isinstance(df.columns, pd.MultiIndex):
+        df.columns = df.columns.get_level_values(0)
     
-    # คำนวณ AI Pivot
-    df = calculate_ai_pivots(df)
-    
-    data_list = []
-    for _, row in df.iterrows():
-        data_list.append({
-            "symbol": "TEAMG",
-            "date": row['date'],
-            "open": float(row['open']),
-            "high": float(row['high']),
-            "low": float(row['low']),
-            "close": float(row['close']),
-            "volume": int(row['volume']),
-            "market_cap": float(mkt_cap) if mkt_cap else None,
-            "ev_ebitda": float(ev_ebitda) if ev_ebitda else None,
-            "high_52week": float(h_52w) if h_52w else None,
-            "low_52week": float(l_52w) if l_52w else None,
-            "free_float_pct": float(free_float_val) if free_float_val else None,
-            "is_pivot_high": bool(row['is_pivot_high'])
-        })
+    df = df.reset_index()
+    df.columns = [col.lower() for col in df.columns]
 
-    # ส่งข้อมูลเข้า Supabase
-    supabase.table("teamg_master_analysis").upsert(data_list).execute()
-    print(f"✅ สำเร็จ! อัปเดตข้อมูล {len(data_list)} แถวเรียบร้อย")
+    # --- Technical Analysis (V.11) ---
+    df['ema_50'] = ta.ema(df['close'], length=50)
+    df['ema_200'] = ta.ema(df['close'], length=200)
+    df['rsi'] = ta.rsi(df['close'], length=14)
+    
+    macd = ta.macd(df['close'])
+    df['macd'] = macd['MACD_12_26_9']
+    df['macd_signal'] = macd['MACDs_12_26_9']
+    df['macd_hist'] = macd['MACDh_12_26_9']
+    
+    stoch = ta.stoch(df['high'], df['low'], df['close'])
+    df['stoch_k'] = stoch['STOCHk_14_3_3']
+    df['stoch_d'] = stoch['STOCHd_14_3_3']
+    
+    # --- Statistics & Volume Analysis ---
+    df['vol_ema20'] = ta.ema(df['volume'], length=20)
+    df['rel_vol'] = df['volume'] / df['vol_ema20']
+    df['z_score'] = (df['close'] - df['close'].rolling(20).mean()) / df['close'].rolling(20).std()
+
+    df = df.dropna()
+
+    data_dict = df.to_dict(orient='records')
+    for record in data_dict:
+        record['date'] = record['date'].strftime('%Y-%m-%d')
+
+    try:
+        # ใช้ชื่อตารางตามไบเบิลที่คุณสกายตั้งไว้
+        supabase.table("teamg_master_analysis").upsert(data_dict).execute()
+        print(f"✅ Successfully updated 'teamg_master_analysis' with {len(df)} rows!")
+    except Exception as e:
+        print(f"❌ Error: {e}")
 
 if __name__ == "__main__":
-    run_pipeline()
+    get_and_process_data()
