@@ -10,6 +10,7 @@ from dotenv import load_dotenv
 load_dotenv()
 st.set_page_config(layout="wide", page_title="TEAMG Strategic Dashboard")
 
+# Custom CSS เพื่อรักษาหน้าตาแบบ V.10
 st.markdown("""
     <style>
     [data-testid="stMetric"] {
@@ -38,19 +39,22 @@ supabase = create_client(url, key)
 
 @st.cache_data(ttl=10)
 def load_all_data():
+    # ดึงข้อมูลจาก Supabase 2000 แถว (ครอบคลุม 5 ปี)
     m_res = supabase.table("teamg_master_analysis").select("*").order("date", desc=True).limit(2000).execute()
     n_res = supabase.table("teamg_news_headers").select("*").order("date", desc=True).limit(8).execute()
     
     df_raw = pd.DataFrame(m_res.data)
     df_raw.columns = [col.lower() for col in df_raw.columns]
+    
+    # สำหรับกราฟต้องการ อดีต -> ปัจจุบัน
     df_plot = df_raw.sort_values("date", ascending=True)
     
     return df_raw, df_plot, pd.DataFrame(n_res.data)
 
 df_raw, df_plot, news_df = load_all_data()
 
-# --- 3. HEADER (แก้ไขชื่อตามสั่ง) ---
-st.title("🏹 TEAMG Strategic Dashboard (V.ล่าสุด)")
+# --- 3. HEADER ---
+st.title("🏹 TEAMG Strategic Dashboard V.11.7 (Latest)")
 if not df_raw.empty:
     latest_date = df_raw['date'].iloc[0]
     st.success(f"✅ ข้อมูลในระบบอัปเดตล่าสุดถึงวันที่: **{latest_date}**")
@@ -58,12 +62,15 @@ if not df_raw.empty:
 # --- 4. TOP SECTION: FINANCIAL HEALTH (DuPont) ---
 st.subheader("💎 Financial Health Insights (DuPont)")
 if not df_raw.empty:
-    latest = df_raw.iloc[0].fillna(0)
+    # ค้นหาย้อนหลังหาแถวที่มีค่า ROE เพื่อป้องกันค่า 0.00
+    df_fund = df_raw[df_raw['roe'] > 0]
+    latest_fin = df_fund.iloc[0] if not df_fund.empty else df_raw.iloc[0]
+    
     m1, m2, m3, m4 = st.columns(4)
-    with m1: st.metric("Efficiency (ROE)", f"{latest.get('roe', 0)*100:.2f} %")
-    with m2: st.metric("Profitability (Margin)", f"{latest.get('net_margin', 0)*100:.2f} %")
-    with m3: st.metric("Asset Velocity (ATO)", f"{latest.get('asset_turnover', 0):.2f} x")
-    with m4: st.metric("Z-Score (Volatility)", f"{latest.get('z_score', 0):.2f}")
+    with m1: st.metric("Efficiency (ROE)", f"{latest_fin.get('roe', 0)*100:.2f} %")
+    with m2: st.metric("Profitability (Margin)", f"{latest_fin.get('net_margin', 0)*100:.2f} %")
+    with m3: st.metric("Asset Velocity (ATO)", f"{latest_fin.get('asset_turnover', 0):.2f} x")
+    with m4: st.metric("Z-Score (Volatility)", f"{df_raw.iloc[0].get('z_score', 0):.2f}")
 
 st.write("---")
 
@@ -71,24 +78,30 @@ st.write("---")
 st.subheader("📊 Multi-Layer Technical Analysis")
 fig = make_subplots(
     rows=4, cols=1, shared_xaxes=True, vertical_spacing=0.03,
-    row_heights=[0.4, 0.2, 0.2, 0.2],
+    row_heights=[0.4, 0.15, 0.2, 0.25],
     subplot_titles=("Price & AI Pivot High", "RSI Momentum", "MACD Trend", "Z-Score")
 )
 
+# Row 1: Price & EMA
 fig.add_trace(go.Candlestick(x=df_plot['date'], open=df_plot['open'], high=df_plot['high'], low=df_plot['low'], close=df_plot['close'], name='Price'), row=1, col=1)
 fig.add_trace(go.Scatter(x=df_plot['date'], y=df_plot['ema_50'], name='EMA 50', line=dict(color='orange', width=1)), row=1, col=1)
 fig.add_trace(go.Scatter(x=df_plot['date'], y=df_plot['ema_200'], name='EMA 200', line=dict(color='red', width=1.5)), row=1, col=1)
 
-pivots = df_plot[df_plot['is_pivot_high'] == True]
-fig.add_trace(go.Scatter(x=pivots['date'], y=pivots['high']*1.02, mode='markers', marker=dict(color='#00e5ff', size=7, symbol='diamond'), name='AI Pivot'), row=1, col=1)
+# AI Pivot
+if 'is_pivot_high' in df_plot.columns:
+    pivots = df_plot[df_plot['is_pivot_high'] == True]
+    fig.add_trace(go.Scatter(x=pivots['date'], y=pivots['high']*1.02, mode='markers', marker=dict(color='#00e5ff', size=7, symbol='diamond'), name='AI Pivot'), row=1, col=1)
 
+# Row 2: RSI
 fig.add_trace(go.Scatter(x=df_plot['date'], y=df_plot['rsi'], name='RSI', line=dict(color='purple')), row=2, col=1)
 fig.add_hline(y=70, line_dash="dot", line_color="red", row=2, col=1)
 fig.add_hline(y=30, line_dash="dot", line_color="green", row=2, col=1)
 
+# Row 3: MACD
 fig.add_trace(go.Bar(x=df_plot['date'], y=df_plot['macd_hist'], name='MACD Hist'), row=3, col=1)
 fig.add_trace(go.Scatter(x=df_plot['date'], y=df_plot['macd'], name='MACD Line', line=dict(color='blue')), row=3, col=1)
 
+# Row 4: Z-Score
 fig.add_trace(go.Scatter(x=df_plot['date'], y=df_plot['z_score'], name='Z-Score', fill='tozeroy', line=dict(color='#00e5ff')), row=4, col=1)
 fig.add_hline(y=2, line_dash="dash", line_color="red", row=4, col=1)
 fig.add_hline(y=-2, line_dash="dash", line_color="green", row=4, col=1)
@@ -96,7 +109,7 @@ fig.add_hline(y=-2, line_dash="dash", line_color="green", row=4, col=1)
 fig.update_layout(height=1100, template='plotly_dark', xaxis_rangeslider_visible=False)
 st.plotly_chart(fig, use_container_width=True)
 
-# --- 6. BOTTOM SECTION: NEWS TIMELINE (V.10 Grid) ---
+# --- 6. BOTTOM SECTION: NEWS TIMELINE (V.10 Style) ---
 st.write("---")
 st.subheader("📰 Market Intelligence Timeline")
 if not news_df.empty:
@@ -115,25 +128,14 @@ if not news_df.empty:
                         </div>
                     """, unsafe_allow_html=True)
 
-# --- 7. RAW DATA EXPLORER (เพิ่มหน่วยใน Header) ---
+# --- 7. RAW DATA EXPLORER (With Units) ---
 with st.expander("🔍 Raw Data Explorer (Latest -> Past)", expanded=True):
-    # กำหนดหัวข้อคอลัมน์ใหม่ที่มีหน่วยวัด
-    display_cols = {
-        "date": "Date (Y-M-D)",
-        "open": "Open (THB)",
-        "high": "High (THB)",
-        "low": "Low (THB)",
-        "close": "Close (THB)",
-        "volume": "Volume (Qty)",
-        "rsi": "RSI (14-D)",
-        "z_score": "Z-Score (Std)",
-        "ema_50": "EMA 50 (THB)",
-        "ema_200": "EMA 200 (THB)",
-        "is_pivot_high": "AI Pivot",
-        "roe": "ROE (%)",
-        "net_margin": "Net Margin (%)",
-        "asset_turnover": "ATO (x)"
+    # ปรับชื่อคอลัมน์สำหรับการแสดงผล
+    display_map = {
+        "date": "Date", "close": "Close (THB)", "rsi": "RSI (14)", 
+        "z_score": "Z-Score", "ema_50": "EMA50", "ema_200": "EMA200", 
+        "roe": "ROE (%)", "net_margin": "Net Margin (%)", "asset_turnover": "ATO (x)"
     }
-    # กรองเฉพาะคอลัมน์ที่ต้องการแสดงและเปลี่ยนชื่อ
-    df_raw_renamed = df_raw.rename(columns=display_cols)
-    st.dataframe(df_raw_renamed[[v for k, v in display_cols.items() if k in df_raw.columns]], use_container_width=True)
+    # แสดงคอลัมน์ที่เลือกและเรียงล่าสุดอยู่บน
+    df_view = df_raw.rename(columns=display_map)
+    st.dataframe(df_view[[v for k, v in display_map.items() if k in df_raw.columns]], use_container_width=True)
