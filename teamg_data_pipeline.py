@@ -12,7 +12,7 @@ SUPABASE_KEY = os.getenv("SUPABASE_KEY")
 supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 def calculate_indicators(df):
-    """คำนวณ RSI และ EMA ด้วย Pandas (ไม่ใช้ pandas-ta เพื่อความเสถียร)"""
+    """คำนวณ RSI และ EMA ด้วย Pandas"""
     # คำนวณ RSI 14
     window = 14
     delta = df['Close'].diff()
@@ -31,7 +31,7 @@ def calculate_indicators(df):
 def get_stock_data(symbol="TEAMG.BK"):
     print(f"Fetching data for {symbol}...")
     stock = yf.Ticker(symbol)
-    df = stock.history(period="1y") # ดึงข้อมูลย้อนหลัง 1 ปี
+    df = stock.history(period="1y") 
     
     if df.empty:
         print("No data found.")
@@ -53,14 +53,19 @@ def get_stock_data(symbol="TEAMG.BK"):
 
 def upload_to_supabase(data):
     if not data:
+        print("No data to upload.")
         return
     
     print(f"Uploading {len(data)} rows to Supabase...")
     try:
-        # ใช้ upsert เพื่ออัปเดตข้อมูลเดิมหรือเพิ่มข้อมูลใหม่โดยอิงจาก Date และ Symbol
+        # ใช้ upsert เพื่ออัปเดตข้อมูล
         response = supabase.table("stock_prices").upsert(data).execute()
         print("Upload successful!")
     except Exception as e:
         print(f"Error uploading to Supabase: {e}")
 
 if __name__ == "__main__":
+    stock_data = get_stock_data("TEAMG.BK")
+    if stock_data:
+        upload_to_supabase(stock_data)
+        
