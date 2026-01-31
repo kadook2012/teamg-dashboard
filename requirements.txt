@@ -4,4 +4,4 @@ numpy<2.0.0
 supabase
 python-dotenv
 plotly
-pandas-ta
+
