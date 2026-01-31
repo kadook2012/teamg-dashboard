@@ -1,10 +1,7 @@
 yfinance
-pandas
-numpy
+pandas==2.2.2
+numpy<2.0.0
 supabase
 python-dotenv
 plotly
 pandas_ta
-streamlit>=1.35.0
-
-
