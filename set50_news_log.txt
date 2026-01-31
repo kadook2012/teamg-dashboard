@@ -2332,3 +2332,365 @@
 2026-01-27 19:12:47,348 - INFO - 
 สรุปการอัพเดตวันนี้: นำเข้าข่าวทั้งหมด 60 ข่าวจาก 49 หุ้น
 2026-01-27 19:12:47,387 - INFO - อัพเดตเสร็จสิ้น
+2026-01-31 19:00:07,372 - INFO - เริ่มโปรแกรมอัพเดตข่าวหุ้น SET50...
+2026-01-31 19:00:07,375 - INFO - 
+=== เริ่มอัพเดตข่าว SET50 วันที่ 2026-01-31 19:00:07 ===
+2026-01-31 19:00:07,375 - INFO - เริ่มดึงข่าว AOT จากทุกแหล่ง...
+2026-01-31 19:00:18,093 - INFO - Kaohoon: พบ 1 ข่าวสำหรับ AOT
+2026-01-31 19:00:19,070 - INFO - SET: พบ 0 ข่าวสำหรับ AOT
+2026-01-31 19:00:19,277 - INFO - Investing: พบ 0 ข่าวสำหรับ AOT
+2026-01-31 19:00:19,377 - INFO - Manager: พบ 0 ข่าวสำหรับ AOT
+2026-01-31 19:00:20,556 - INFO - HTTP Request: POST https://ankvysfiennumjheouks.supabase.co/rest/v1/stock_news?on_conflict=symbol%2C+news_date%2C+title&columns=%22source%22%2C%22category%22%2C%22title%22%2C%22symbol%22%2C%22news_date%22%2C%22summary%22%2C%22url%22 "HTTP/2 201 Created"
+2026-01-31 19:00:20,568 - INFO - นำเข้า 1 ข่าวสำหรับ AOT จากทุกแหล่งสำเร็จ
+2026-01-31 19:00:20,570 - INFO -   - Kaohoon: KSS ชี้ MSCI จ่อขยับชั้น “หุ้นกรีซ” หนุนเม็ดเงินไหลเข้าไทย ชู 5 บิ๊กแคปรับอานิสงส์ (2026-01-29)
+2026-01-31 19:00:23,572 - INFO - เริ่มดึงข่าว ADVANC จากทุกแหล่ง...
+2026-01-31 19:00:35,310 - INFO - Kaohoon: พบ 0 ข่าวสำหรับ ADVANC
+2026-01-31 19:00:35,875 - INFO - SET: พบ 0 ข่าวสำหรับ ADVANC
+2026-01-31 19:00:36,101 - INFO - Investing: พบ 0 ข่าวสำหรับ ADVANC
+2026-01-31 19:00:36,206 - INFO - Manager: พบ 0 ข่าวสำหรับ ADVANC
+2026-01-31 19:00:39,206 - INFO - เริ่มดึงข่าว BANPU จากทุกแหล่ง...
+2026-01-31 19:00:49,822 - INFO - Kaohoon: พบ 2 ข่าวสำหรับ BANPU
+2026-01-31 19:00:50,305 - INFO - SET: พบ 0 ข่าวสำหรับ BANPU
+2026-01-31 19:00:50,523 - INFO - Investing: พบ 0 ข่าวสำหรับ BANPU
+2026-01-31 19:00:50,626 - INFO - Manager: พบ 0 ข่าวสำหรับ BANPU
+2026-01-31 19:00:51,966 - INFO - HTTP Request: POST https://ankvysfiennumjheouks.supabase.co/rest/v1/stock_news?on_conflict=symbol%2C+news_date%2C+title&columns=%22source%22%2C%22category%22%2C%22title%22%2C%22symbol%22%2C%22news_date%22%2C%22summary%22%2C%22url%22 "HTTP/2 201 Created"
+2026-01-31 19:00:51,968 - INFO - นำเข้า 2 ข่าวสำหรับ BANPU จากทุกแหล่งสำเร็จ
+2026-01-31 19:00:51,968 - INFO -   - Kaohoon: BANPU-BPP วิ่ง! รับผู้ถือหุ้นไฟเขียวควบรวมกิจการ (2026-01-30)
+2026-01-31 19:00:51,968 - INFO -   - Kaohoon: BANPU ฉลุย! ผู้ถือหุ้นไฟเขียวควบ BPP เปิดทาง “สินนท์ ว่องกุศลกิจ” เพิ่มทุน (2026-01-29)
+2026-01-31 19:00:54,969 - INFO - เริ่มดึงข่าว BBL จากทุกแหล่ง...
+2026-01-31 19:01:05,509 - INFO - Kaohoon: พบ 0 ข่าวสำหรับ BBL
+2026-01-31 19:01:06,251 - INFO - SET: พบ 0 ข่าวสำหรับ BBL
+2026-01-31 19:01:06,467 - INFO - Investing: พบ 0 ข่าวสำหรับ BBL
+2026-01-31 19:01:06,556 - INFO - Manager: พบ 0 ข่าวสำหรับ BBL
+2026-01-31 19:01:09,557 - INFO - เริ่มดึงข่าว BCP จากทุกแหล่ง...
+2026-01-31 19:01:19,976 - INFO - Kaohoon: พบ 1 ข่าวสำหรับ BCP
+2026-01-31 19:01:20,717 - INFO - SET: พบ 0 ข่าวสำหรับ BCP
+2026-01-31 19:01:20,948 - INFO - Investing: พบ 0 ข่าวสำหรับ BCP
+2026-01-31 19:01:21,037 - INFO - Manager: พบ 0 ข่าวสำหรับ BCP
+2026-01-31 19:01:21,227 - INFO - HTTP Request: POST https://ankvysfiennumjheouks.supabase.co/rest/v1/stock_news?on_conflict=symbol%2C+news_date%2C+title&columns=%22source%22%2C%22category%22%2C%22title%22%2C%22symbol%22%2C%22news_date%22%2C%22summary%22%2C%22url%22 "HTTP/2 201 Created"
+2026-01-31 19:01:21,229 - INFO - นำเข้า 1 ข่าวสำหรับ BCP จากทุกแหล่งสำเร็จ
+2026-01-31 19:01:21,229 - INFO -   - Kaohoon: ฐกฤต ชี้ SET แนวต้านสำคัญ 1,345 จุด ผ่านได้ไปต่อ แนะเก็บหุ้น “บิ๊กแคป” กำไรเด่น–ปันผลดี (2026-01-29)
+2026-01-31 19:01:24,242 - INFO - เริ่มดึงข่าว BDMS จากทุกแหล่ง...
+2026-01-31 19:01:34,864 - INFO - Kaohoon: พบ 0 ข่าวสำหรับ BDMS
+2026-01-31 19:01:35,569 - INFO - SET: พบ 0 ข่าวสำหรับ BDMS
+2026-01-31 19:01:35,929 - INFO - Investing: พบ 0 ข่าวสำหรับ BDMS
+2026-01-31 19:01:36,013 - INFO - Manager: พบ 0 ข่าวสำหรับ BDMS
+2026-01-31 19:01:39,014 - INFO - เริ่มดึงข่าว BEM จากทุกแหล่ง...
+2026-01-31 19:01:49,845 - INFO - Kaohoon: พบ 0 ข่าวสำหรับ BEM
+2026-01-31 19:01:50,444 - INFO - SET: พบ 0 ข่าวสำหรับ BEM
+2026-01-31 19:01:50,791 - INFO - Investing: พบ 0 ข่าวสำหรับ BEM
+2026-01-31 19:01:50,872 - INFO - Manager: พบ 0 ข่าวสำหรับ BEM
+2026-01-31 19:01:53,873 - INFO - เริ่มดึงข่าว BGRIM จากทุกแหล่ง...
+2026-01-31 19:02:05,062 - INFO - Kaohoon: พบ 2 ข่าวสำหรับ BGRIM
+2026-01-31 19:02:05,907 - INFO - SET: พบ 0 ข่าวสำหรับ BGRIM
+2026-01-31 19:02:06,310 - INFO - Investing: พบ 0 ข่าวสำหรับ BGRIM
+2026-01-31 19:02:06,402 - INFO - Manager: พบ 0 ข่าวสำหรับ BGRIM
+2026-01-31 19:02:06,670 - INFO - HTTP Request: POST https://ankvysfiennumjheouks.supabase.co/rest/v1/stock_news?on_conflict=symbol%2C+news_date%2C+title&columns=%22source%22%2C%22category%22%2C%22title%22%2C%22symbol%22%2C%22news_date%22%2C%22summary%22%2C%22url%22 "HTTP/2 201 Created"
+2026-01-31 19:02:06,671 - INFO - นำเข้า 2 ข่าวสำหรับ BGRIM จากทุกแหล่งสำเร็จ
+2026-01-31 19:02:06,671 - INFO -   - Kaohoon: BGRIM บวก 2% กางแผนปี 69 ทุ่ม 1.5 หมื่นล. ลุยดาต้าเซ็นเตอร์-วินด์ฟาร์ม ดันกำลังผลิต 10 GW (2026-01-30)
+2026-01-31 19:02:06,672 - INFO -   - Kaohoon: BGRIM ชูกลยุทธ์ GreenLeap รุก Digital Infra รับเทรนด์ AI จ่อ COD วินด์ฟาร์มเกาหลีปีนี้ (2026-01-30)
+2026-01-31 19:02:09,673 - INFO - เริ่มดึงข่าว BTS จากทุกแหล่ง...
+2026-01-31 19:02:20,193 - INFO - Kaohoon: พบ 1 ข่าวสำหรับ BTS
+2026-01-31 19:02:20,475 - INFO - SET: พบ 0 ข่าวสำหรับ BTS
+2026-01-31 19:02:20,724 - INFO - Investing: พบ 0 ข่าวสำหรับ BTS
+2026-01-31 19:02:20,824 - INFO - Manager: พบ 0 ข่าวสำหรับ BTS
+2026-01-31 19:02:21,023 - INFO - HTTP Request: POST https://ankvysfiennumjheouks.supabase.co/rest/v1/stock_news?on_conflict=symbol%2C+news_date%2C+title&columns=%22source%22%2C%22category%22%2C%22title%22%2C%22symbol%22%2C%22news_date%22%2C%22summary%22%2C%22url%22 "HTTP/2 201 Created"
+2026-01-31 19:02:21,025 - INFO - นำเข้า 1 ข่าวสำหรับ BTS จากทุกแหล่งสำเร็จ
+2026-01-31 19:02:21,026 - INFO -   - Kaohoon: สกพอ. ผนึก BTS-BA-STECON เซ็นบริหารสัญญา “อู่ตะเภา” จ่อรับ NTP ก.พ.นี้ ลุยเมืองการบิน (2026-01-30)
+2026-01-31 19:02:24,026 - INFO - เริ่มดึงข่าว CBG จากทุกแหล่ง...
+2026-01-31 19:02:35,325 - INFO - Kaohoon: พบ 0 ข่าวสำหรับ CBG
+2026-01-31 19:02:35,983 - INFO - SET: พบ 0 ข่าวสำหรับ CBG
+2026-01-31 19:02:36,192 - INFO - Investing: พบ 0 ข่าวสำหรับ CBG
+2026-01-31 19:02:36,282 - INFO - Manager: พบ 0 ข่าวสำหรับ CBG
+2026-01-31 19:02:39,283 - INFO - เริ่มดึงข่าว CPALL จากทุกแหล่ง...
+2026-01-31 19:02:49,799 - INFO - Kaohoon: พบ 1 ข่าวสำหรับ CPALL
+2026-01-31 19:02:50,156 - INFO - SET: พบ 0 ข่าวสำหรับ CPALL
+2026-01-31 19:02:50,397 - INFO - Investing: พบ 0 ข่าวสำหรับ CPALL
+2026-01-31 19:02:50,495 - INFO - Manager: พบ 0 ข่าวสำหรับ CPALL
+2026-01-31 19:02:50,679 - INFO - HTTP Request: POST https://ankvysfiennumjheouks.supabase.co/rest/v1/stock_news?on_conflict=symbol%2C+news_date%2C+title&columns=%22source%22%2C%22category%22%2C%22title%22%2C%22symbol%22%2C%22news_date%22%2C%22summary%22%2C%22url%22 "HTTP/2 201 Created"
+2026-01-31 19:02:50,680 - INFO - นำเข้า 1 ข่าวสำหรับ CPALL จากทุกแหล่งสำเร็จ
+2026-01-31 19:02:50,681 - INFO -   - Kaohoon: InnovestX จัดพอร์ตปี 69 แนะหุ้นนอกสหรัฐ เสริมตราสารหนี้–ทองคำ พ่วง 4 ธีมเด่นหุ้นไทย (2026-01-30)
+2026-01-31 19:02:53,682 - INFO - เริ่มดึงข่าว CPF จากทุกแหล่ง...
+2026-01-31 19:03:04,390 - INFO - Kaohoon: พบ 2 ข่าวสำหรับ CPF
+2026-01-31 19:03:04,940 - INFO - SET: พบ 0 ข่าวสำหรับ CPF
+2026-01-31 19:03:05,355 - INFO - Investing: พบ 0 ข่าวสำหรับ CPF
+2026-01-31 19:03:05,447 - INFO - Manager: พบ 0 ข่าวสำหรับ CPF
+2026-01-31 19:03:05,631 - INFO - HTTP Request: POST https://ankvysfiennumjheouks.supabase.co/rest/v1/stock_news?on_conflict=symbol%2C+news_date%2C+title&columns=%22source%22%2C%22category%22%2C%22title%22%2C%22symbol%22%2C%22news_date%22%2C%22summary%22%2C%22url%22 "HTTP/2 201 Created"
+2026-01-31 19:03:05,633 - INFO - นำเข้า 2 ข่าวสำหรับ CPF จากทุกแหล่งสำเร็จ
+2026-01-31 19:03:05,634 - INFO -   - Kaohoon: โบรกแนะ “ซื้อ” CPF เป้า 25.50 บ. ลุ้นกำไรปีนี้แตะ 2.1 หมื่นล้าน รับราคาหมู–ไก่ฟื้น (2026-01-30)
+2026-01-31 19:03:05,634 - INFO -   - Kaohoon: CPF รุกหมากระดับโลก! ควัก 6.8 พันล้าน จองไอพีโอ “Muyuan Foods” ผู้ผลิตสุกรยักษ์ใหญ่ (2026-01-29)
+2026-01-31 19:03:08,635 - INFO - เริ่มดึงข่าว CPN จากทุกแหล่ง...
+2026-01-31 19:03:19,490 - INFO - Kaohoon: พบ 0 ข่าวสำหรับ CPN
+2026-01-31 19:03:20,277 - INFO - SET: พบ 0 ข่าวสำหรับ CPN
+2026-01-31 19:03:20,676 - INFO - Investing: พบ 0 ข่าวสำหรับ CPN
+2026-01-31 19:03:20,764 - INFO - Manager: พบ 0 ข่าวสำหรับ CPN
+2026-01-31 19:03:23,765 - INFO - เริ่มดึงข่าว DELTA จากทุกแหล่ง...
+2026-01-31 19:03:35,421 - INFO - Kaohoon: พบ 1 ข่าวสำหรับ DELTA
+2026-01-31 19:03:36,295 - INFO - SET: พบ 0 ข่าวสำหรับ DELTA
+2026-01-31 19:03:36,503 - INFO - Investing: พบ 0 ข่าวสำหรับ DELTA
+2026-01-31 19:03:36,593 - INFO - Manager: พบ 0 ข่าวสำหรับ DELTA
+2026-01-31 19:03:36,860 - INFO - HTTP Request: POST https://ankvysfiennumjheouks.supabase.co/rest/v1/stock_news?on_conflict=symbol%2C+news_date%2C+title&columns=%22source%22%2C%22category%22%2C%22title%22%2C%22symbol%22%2C%22news_date%22%2C%22summary%22%2C%22url%22 "HTTP/2 201 Created"
+2026-01-31 19:03:36,862 - INFO - นำเข้า 1 ข่าวสำหรับ DELTA จากทุกแหล่งสำเร็จ
+2026-01-31 19:03:36,862 - INFO -   - Kaohoon: แรงขาย DELTA-บิ๊กแคป กด SET ปิดเช้าลบ 5 จุด แนวโน้มบ่ายลงต่อ (2026-01-30)
+2026-01-31 19:03:39,863 - INFO - เริ่มดึงข่าว EA จากทุกแหล่ง...
+2026-01-31 19:03:49,867 - INFO - Kaohoon: พบ 10 ข่าวสำหรับ EA
+2026-01-31 19:03:50,680 - INFO - SET: พบ 0 ข่าวสำหรับ EA
+2026-01-31 19:03:50,917 - INFO - Investing: พบ 0 ข่าวสำหรับ EA
+2026-01-31 19:03:50,996 - INFO - Manager: พบ 0 ข่าวสำหรับ EA
+2026-01-31 19:03:51,163 - INFO - HTTP Request: POST https://ankvysfiennumjheouks.supabase.co/rest/v1/stock_news?on_conflict=symbol%2C+news_date%2C+title&columns=%22source%22%2C%22category%22%2C%22title%22%2C%22symbol%22%2C%22news_date%22%2C%22summary%22%2C%22url%22 "HTTP/2 201 Created"
+2026-01-31 19:03:51,166 - INFO - นำเข้า 10 ข่าวสำหรับ EA จากทุกแหล่งสำเร็จ
+2026-01-31 19:03:51,167 - INFO -   - Kaohoon: “ปานัดฌา” ปลื้ม! อุทัยธานีคว้า “เมืองท่องเที่ยวสะอาดอาเซียน 2026” ดันภาพลักษณ์ยั่งยืน (2026-01-31)
+2026-01-31 19:03:51,167 - INFO -   - Kaohoon: “สหรัฐ” เปิดดัชนี PPI เดือนธ.ค. ขยายตัว 3% สูงกว่าคาด (2026-01-30)
+2026-01-31 19:03:51,167 - INFO -   - Kaohoon: ก.ล.ต.จี้ SAM ส่งงบ Q3/68 ฉบับแก้ไข หลังดองนาน 6 เดือน ชี้กระทบผู้ลงทุน (2026-01-30)
+2026-01-31 19:03:51,168 - INFO -   - Kaohoon: EASTW เปิดตัว U-Chill Station นวัตกรรม “น้ำดื่มสะอาด” เพื่อชุมชนยั่งยืน (2026-01-30)
+2026-01-31 19:03:51,168 - INFO -   - Kaohoon: InnovestX จัดพอร์ตปี 69 แนะหุ้นนอกสหรัฐ เสริมตราสารหนี้–ทองคำ พ่วง 4 ธีมเด่นหุ้นไทย (2026-01-30)
+2026-01-31 19:03:51,169 - INFO -   - Kaohoon: สรุป SET100 วันนี้ BLA บวกสูงสุด 4% (2026-01-30)
+2026-01-31 19:03:51,169 - INFO -   - Kaohoon: สรุป SET100 เช้านี้ BLA บวกสูงสุด 3% (2026-01-30)
+2026-01-31 19:03:51,170 - INFO -   - Kaohoon: “ทรัมป์” ขู่รีดภาษีนำเข้าเครื่องบิน “แคนาดา” 50% ตอบโต้ปมกีดกันกัลฟ์สตรีม (2026-01-30)
+2026-01-31 19:03:51,170 - INFO -   - Kaohoon: “ทรัมป์” ฟ้อง IRS–คลังสหรัฐ เรียกค่าเสียหาย 1 หมื่นล้านเหรียญ (2026-01-30)
+2026-01-31 19:03:51,171 - INFO -   - Kaohoon: MPJ ทุ่มงบพันล้าน เพิ่มพื้นที่ 30 ไร่ รองรับตู้ทะลุ 5 แสนใบ ตั้งเป้ารายได้ปีนี้โต 30% (2026-01-30)
+2026-01-31 19:03:54,172 - INFO - เริ่มดึงข่าว EGCO จากทุกแหล่ง...
+2026-01-31 19:04:05,433 - INFO - Kaohoon: พบ 0 ข่าวสำหรับ EGCO
+2026-01-31 19:04:05,909 - INFO - SET: พบ 0 ข่าวสำหรับ EGCO
+2026-01-31 19:04:06,137 - INFO - Investing: พบ 0 ข่าวสำหรับ EGCO
+2026-01-31 19:04:06,225 - INFO - Manager: พบ 0 ข่าวสำหรับ EGCO
+2026-01-31 19:04:09,227 - INFO - เริ่มดึงข่าว GLOBAL จากทุกแหล่ง...
+2026-01-31 19:04:20,409 - INFO - Kaohoon: พบ 1 ข่าวสำหรับ GLOBAL
+2026-01-31 19:04:21,073 - INFO - SET: พบ 0 ข่าวสำหรับ GLOBAL
+2026-01-31 19:04:21,431 - INFO - Investing: พบ 0 ข่าวสำหรับ GLOBAL
+2026-01-31 19:04:21,521 - INFO - Manager: พบ 0 ข่าวสำหรับ GLOBAL
+2026-01-31 19:04:21,692 - INFO - HTTP Request: POST https://ankvysfiennumjheouks.supabase.co/rest/v1/stock_news?on_conflict=symbol%2C+news_date%2C+title&columns=%22source%22%2C%22category%22%2C%22title%22%2C%22symbol%22%2C%22news_date%22%2C%22summary%22%2C%22url%22 "HTTP/2 201 Created"
+2026-01-31 19:04:21,694 - INFO - นำเข้า 1 ข่าวสำหรับ GLOBAL จากทุกแหล่งสำเร็จ
+2026-01-31 19:04:21,694 - INFO -   - Kaohoon: CHAO ยกทัพ Modern Thai Snack โชว์ศักยภาพในงาน GULFOOD 2026 (2026-01-29)
+2026-01-31 19:04:24,695 - INFO - เริ่มดึงข่าว GPSC จากทุกแหล่ง...
+2026-01-31 19:04:35,833 - INFO - Kaohoon: พบ 0 ข่าวสำหรับ GPSC
+2026-01-31 19:04:36,467 - INFO - SET: พบ 0 ข่าวสำหรับ GPSC
+2026-01-31 19:04:36,695 - INFO - Investing: พบ 0 ข่าวสำหรับ GPSC
+2026-01-31 19:04:36,780 - INFO - Manager: พบ 0 ข่าวสำหรับ GPSC
+2026-01-31 19:04:39,781 - INFO - เริ่มดึงข่าว GULF จากทุกแหล่ง...
+2026-01-31 19:04:51,350 - INFO - Kaohoon: พบ 2 ข่าวสำหรับ GULF
+2026-01-31 19:04:51,683 - INFO - SET: พบ 0 ข่าวสำหรับ GULF
+2026-01-31 19:04:51,902 - INFO - Investing: พบ 0 ข่าวสำหรับ GULF
+2026-01-31 19:04:51,994 - INFO - Manager: พบ 0 ข่าวสำหรับ GULF
+2026-01-31 19:04:52,153 - INFO - HTTP Request: POST https://ankvysfiennumjheouks.supabase.co/rest/v1/stock_news?on_conflict=symbol%2C+news_date%2C+title&columns=%22source%22%2C%22category%22%2C%22title%22%2C%22symbol%22%2C%22news_date%22%2C%22summary%22%2C%22url%22 "HTTP/2 201 Created"
+2026-01-31 19:04:52,155 - INFO - นำเข้า 2 ข่าวสำหรับ GULF จากทุกแหล่งสำเร็จ
+2026-01-31 19:04:52,156 - INFO -   - Kaohoon: “กัณฑรา” มอง SET ปรับฐานระยะสั้น แนะดักเก็บหุ้นพื้นฐานดี ชู MTC-GLUF (2026-01-30)
+2026-01-31 19:04:52,156 - INFO -   - Kaohoon: CGSI มองกรอบ SET วันนี้1,320-1,350 จุด ชูหุ้นเด่น GULF-PTTEP (2026-01-30)
+2026-01-31 19:04:55,157 - INFO - เริ่มดึงข่าว HMPRO จากทุกแหล่ง...
+2026-01-31 19:05:07,243 - INFO - Kaohoon: พบ 1 ข่าวสำหรับ HMPRO
+2026-01-31 19:05:07,769 - INFO - SET: พบ 0 ข่าวสำหรับ HMPRO
+2026-01-31 19:05:07,989 - INFO - Investing: พบ 0 ข่าวสำหรับ HMPRO
+2026-01-31 19:05:08,087 - INFO - Manager: พบ 0 ข่าวสำหรับ HMPRO
+2026-01-31 19:05:08,256 - INFO - HTTP Request: POST https://ankvysfiennumjheouks.supabase.co/rest/v1/stock_news?on_conflict=symbol%2C+news_date%2C+title&columns=%22source%22%2C%22category%22%2C%22title%22%2C%22symbol%22%2C%22news_date%22%2C%22summary%22%2C%22url%22 "HTTP/2 201 Created"
+2026-01-31 19:05:08,257 - INFO - นำเข้า 1 ข่าวสำหรับ HMPRO จากทุกแหล่งสำเร็จ
+2026-01-31 19:05:08,258 - INFO -   - Kaohoon: เปิด 20 อันดับหุ้นถูก “Cover-Short” สูงสุด ณ 28 ม.ค.69 (2026-01-29)
+2026-01-31 19:05:11,259 - INFO - เริ่มดึงข่าว INTUCH จากทุกแหล่ง...
+2026-01-31 19:05:22,560 - INFO - Kaohoon: พบ 5 ข่าวสำหรับ INTUCH
+2026-01-31 19:05:23,173 - INFO - SET: พบ 0 ข่าวสำหรับ INTUCH
+2026-01-31 19:05:23,395 - INFO - Investing: พบ 0 ข่าวสำหรับ INTUCH
+2026-01-31 19:05:23,474 - INFO - Manager: พบ 0 ข่าวสำหรับ INTUCH
+2026-01-31 19:05:23,660 - INFO - HTTP Request: POST https://ankvysfiennumjheouks.supabase.co/rest/v1/stock_news?on_conflict=symbol%2C+news_date%2C+title&columns=%22source%22%2C%22category%22%2C%22title%22%2C%22symbol%22%2C%22news_date%22%2C%22summary%22%2C%22url%22 "HTTP/2 200 OK"
+2026-01-31 19:05:23,661 - INFO - นำเข้า 5 ข่าวสำหรับ INTUCH จากทุกแหล่งสำเร็จ
+2026-01-31 19:05:23,661 - INFO -   - Kaohoon: GULF ดีด 3% เล็งจ่ายปันผลปีละ 2 ครั้ง มั่นใจกำไร Q4 โดดเด่น ปีนี้จ่ายไฟโซลาร์อีก 371 MW (2026-01-06)
+2026-01-31 19:05:23,662 - INFO -   - Kaohoon: GULF ชงบอร์ดจ่ายปันผล 2 ครั้ง จับตา Q2 เปิดแบงก์ไร้สาขา-ปีนี้เร่งจ่ายไฟโซลาร์อีก 371 MW (2026-01-06)
+2026-01-31 19:05:23,662 - INFO -   - Kaohoon: GULF ได้รับการจัดอันดับเครดิต JCR ระดับ “A” แนวโน้ม “คงที่” เทียบอันดับความน่าเชื่อถือไทย (2025-11-07)
+2026-01-31 19:05:23,662 - INFO -   - Kaohoon: JCR จัดอันดับเครดิต GULF ระดับ A แนวโน้มคงที่ สะท้อนศักยภาพธุรกิจแข็งแกร่ง (2025-11-07)
+2026-01-31 19:05:23,662 - INFO -   - Kaohoon: KKPS เชียร์ซื้อ GULF เป้า 57 บาท ชี้การเงินแกร่ง-ดีมานด์ Data Center ดันผลงานโต (2025-10-16)
+2026-01-31 19:05:26,663 - INFO - เริ่มดึงข่าว IRPC จากทุกแหล่ง...
+2026-01-31 19:05:37,647 - INFO - Kaohoon: พบ 0 ข่าวสำหรับ IRPC
+2026-01-31 19:05:38,212 - INFO - SET: พบ 0 ข่าวสำหรับ IRPC
+2026-01-31 19:05:38,444 - INFO - Investing: พบ 0 ข่าวสำหรับ IRPC
+2026-01-31 19:05:38,527 - INFO - Manager: พบ 0 ข่าวสำหรับ IRPC
+2026-01-31 19:05:41,528 - INFO - เริ่มดึงข่าว IVL จากทุกแหล่ง...
+2026-01-31 19:05:53,110 - INFO - Kaohoon: พบ 2 ข่าวสำหรับ IVL
+2026-01-31 19:05:53,738 - INFO - SET: พบ 0 ข่าวสำหรับ IVL
+2026-01-31 19:05:53,970 - INFO - Investing: พบ 0 ข่าวสำหรับ IVL
+2026-01-31 19:05:54,085 - INFO - Manager: พบ 0 ข่าวสำหรับ IVL
+2026-01-31 19:05:54,575 - INFO - HTTP Request: POST https://ankvysfiennumjheouks.supabase.co/rest/v1/stock_news?on_conflict=symbol%2C+news_date%2C+title&columns=%22source%22%2C%22category%22%2C%22title%22%2C%22symbol%22%2C%22news_date%22%2C%22summary%22%2C%22url%22 "HTTP/2 201 Created"
+2026-01-31 19:05:54,577 - INFO - นำเข้า 2 ข่าวสำหรับ IVL จากทุกแหล่งสำเร็จ
+2026-01-31 19:05:54,578 - INFO -   - Kaohoon: เปิดโผหุ้น SET50 “เด่น-ดิ่ง” เดือนมกราคม! TU ท็อปฟอร์มพุ่ง 8.47% (2026-01-31)
+2026-01-31 19:05:54,578 - INFO -   - Kaohoon: อสังหาฯ จีนคลายล็อก กรุงศรีแนะสะสม IVL-PTTGC-SCC-SCGP รับบวก China Plays (2026-01-30)
+2026-01-31 19:05:57,579 - INFO - เริ่มดึงข่าว KBANK จากทุกแหล่ง...
+2026-01-31 19:06:08,175 - INFO - Kaohoon: พบ 0 ข่าวสำหรับ KBANK
+2026-01-31 19:06:08,784 - INFO - SET: พบ 0 ข่าวสำหรับ KBANK
+2026-01-31 19:06:09,011 - INFO - Investing: พบ 0 ข่าวสำหรับ KBANK
+2026-01-31 19:06:09,099 - INFO - Manager: พบ 0 ข่าวสำหรับ KBANK
+2026-01-31 19:06:12,100 - INFO - เริ่มดึงข่าว KCE จากทุกแหล่ง...
+2026-01-31 19:06:22,907 - INFO - Kaohoon: พบ 0 ข่าวสำหรับ KCE
+2026-01-31 19:06:23,558 - INFO - SET: พบ 0 ข่าวสำหรับ KCE
+2026-01-31 19:06:23,924 - INFO - Investing: พบ 0 ข่าวสำหรับ KCE
+2026-01-31 19:06:24,021 - INFO - Manager: พบ 0 ข่าวสำหรับ KCE
+2026-01-31 19:06:27,022 - INFO - เริ่มดึงข่าว KTB จากทุกแหล่ง...
+2026-01-31 19:06:37,810 - INFO - Kaohoon: พบ 1 ข่าวสำหรับ KTB
+2026-01-31 19:06:38,184 - INFO - SET: พบ 0 ข่าวสำหรับ KTB
+2026-01-31 19:06:38,436 - INFO - Investing: พบ 0 ข่าวสำหรับ KTB
+2026-01-31 19:06:38,535 - INFO - Manager: พบ 0 ข่าวสำหรับ KTB
+2026-01-31 19:06:38,720 - INFO - HTTP Request: POST https://ankvysfiennumjheouks.supabase.co/rest/v1/stock_news?on_conflict=symbol%2C+news_date%2C+title&columns=%22source%22%2C%22category%22%2C%22title%22%2C%22symbol%22%2C%22news_date%22%2C%22summary%22%2C%22url%22 "HTTP/2 201 Created"
+2026-01-31 19:06:38,721 - INFO - นำเข้า 1 ข่าวสำหรับ KTB จากทุกแหล่งสำเร็จ
+2026-01-31 19:06:38,722 - INFO -   - Kaohoon: InnovestX จัดพอร์ตปี 69 แนะหุ้นนอกสหรัฐ เสริมตราสารหนี้–ทองคำ พ่วง 4 ธีมเด่นหุ้นไทย (2026-01-30)
+2026-01-31 19:06:41,723 - INFO - เริ่มดึงข่าว KTC จากทุกแหล่ง...
+2026-01-31 19:06:53,214 - INFO - Kaohoon: พบ 0 ข่าวสำหรับ KTC
+2026-01-31 19:06:54,068 - INFO - SET: พบ 0 ข่าวสำหรับ KTC
+2026-01-31 19:06:54,293 - INFO - Investing: พบ 0 ข่าวสำหรับ KTC
+2026-01-31 19:06:54,384 - INFO - Manager: พบ 0 ข่าวสำหรับ KTC
+2026-01-31 19:06:57,384 - INFO - เริ่มดึงข่าว MINT จากทุกแหล่ง...
+2026-01-31 19:07:07,923 - INFO - Kaohoon: พบ 0 ข่าวสำหรับ MINT
+2026-01-31 19:07:08,352 - INFO - SET: พบ 0 ข่าวสำหรับ MINT
+2026-01-31 19:07:08,581 - INFO - Investing: พบ 0 ข่าวสำหรับ MINT
+2026-01-31 19:07:08,677 - INFO - Manager: พบ 0 ข่าวสำหรับ MINT
+2026-01-31 19:07:11,678 - INFO - เริ่มดึงข่าว MTC จากทุกแหล่ง...
+2026-01-31 19:07:23,668 - INFO - Kaohoon: พบ 2 ข่าวสำหรับ MTC
+2026-01-31 19:07:24,482 - INFO - SET: พบ 0 ข่าวสำหรับ MTC
+2026-01-31 19:07:24,692 - INFO - Investing: พบ 0 ข่าวสำหรับ MTC
+2026-01-31 19:07:24,773 - INFO - Manager: พบ 0 ข่าวสำหรับ MTC
+2026-01-31 19:07:25,027 - INFO - HTTP Request: POST https://ankvysfiennumjheouks.supabase.co/rest/v1/stock_news?on_conflict=symbol%2C+news_date%2C+title&columns=%22source%22%2C%22category%22%2C%22title%22%2C%22symbol%22%2C%22news_date%22%2C%22summary%22%2C%22url%22 "HTTP/2 201 Created"
+2026-01-31 19:07:25,029 - INFO - นำเข้า 2 ข่าวสำหรับ MTC จากทุกแหล่งสำเร็จ
+2026-01-31 19:07:25,030 - INFO -   - Kaohoon: InnovestX จัดพอร์ตปี 69 แนะหุ้นนอกสหรัฐ เสริมตราสารหนี้–ทองคำ พ่วง 4 ธีมเด่นหุ้นไทย (2026-01-30)
+2026-01-31 19:07:25,030 - INFO -   - Kaohoon: “กัณฑรา” มอง SET ปรับฐานระยะสั้น แนะดักเก็บหุ้นพื้นฐานดี ชู MTC-GLUF (2026-01-30)
+2026-01-31 19:07:28,031 - INFO - เริ่มดึงข่าว OR จากทุกแหล่ง...
+2026-01-31 19:07:36,462 - INFO - Kaohoon: พบ 3 ข่าวสำหรับ OR
+2026-01-31 19:07:37,092 - INFO - SET: พบ 0 ข่าวสำหรับ OR
+2026-01-31 19:07:37,300 - INFO - Investing: พบ 0 ข่าวสำหรับ OR
+2026-01-31 19:07:37,388 - INFO - Manager: พบ 0 ข่าวสำหรับ OR
+2026-01-31 19:07:38,158 - INFO - HTTP Request: POST https://ankvysfiennumjheouks.supabase.co/rest/v1/stock_news?on_conflict=symbol%2C+news_date%2C+title&columns=%22source%22%2C%22category%22%2C%22title%22%2C%22symbol%22%2C%22news_date%22%2C%22summary%22%2C%22url%22 "HTTP/2 201 Created"
+2026-01-31 19:07:38,160 - INFO - นำเข้า 3 ข่าวสำหรับ OR จากทุกแหล่งสำเร็จ
+2026-01-31 19:07:38,161 - INFO -   - Kaohoon: “ปานัดฌา” ปลื้ม! อุทัยธานีคว้า “เมืองท่องเที่ยวสะอาดอาเซียน 2026” ดันภาพลักษณ์ยั่งยืน (2026-01-31)
+2026-01-31 19:07:38,161 - INFO -   - Kaohoon: ธปท.แจงปม “ไทย” ถูก “สหรัฐ” จับตาค่าเงิน ยันไม่กระทบการเจรจาภาษี (2026-01-30)
+2026-01-31 19:07:38,162 - INFO -   - Kaohoon: ก.ล.ต. สอบเข้ม Worldcoin พบผู้ค้าเถื่อน 5 ราย ขยายผล World App (2026-01-30)
+2026-01-31 19:07:41,163 - INFO - เริ่มดึงข่าว OSP จากทุกแหล่ง...
+2026-01-31 19:07:53,224 - INFO - Kaohoon: พบ 1 ข่าวสำหรับ OSP
+2026-01-31 19:07:53,660 - INFO - SET: พบ 0 ข่าวสำหรับ OSP
+2026-01-31 19:07:53,897 - INFO - Investing: พบ 0 ข่าวสำหรับ OSP
+2026-01-31 19:07:53,980 - INFO - Manager: พบ 0 ข่าวสำหรับ OSP
+2026-01-31 19:07:54,121 - INFO - HTTP Request: POST https://ankvysfiennumjheouks.supabase.co/rest/v1/stock_news?on_conflict=symbol%2C+news_date%2C+title&columns=%22source%22%2C%22category%22%2C%22title%22%2C%22symbol%22%2C%22news_date%22%2C%22summary%22%2C%22url%22 "HTTP/2 201 Created"
+2026-01-31 19:07:54,121 - INFO - นำเข้า 1 ข่าวสำหรับ OSP จากทุกแหล่งสำเร็จ
+2026-01-31 19:07:54,122 - INFO -   - Kaohoon: SA เสิร์ฟ PESTO อิตาเลียนสาขาใหม่ สุขุมวิท 31 รุก Hospitality เต็มสูบ (2026-01-29)
+2026-01-31 19:07:57,123 - INFO - เริ่มดึงข่าว PTT จากทุกแหล่ง...
+2026-01-31 19:08:06,740 - INFO - Kaohoon: พบ 2 ข่าวสำหรับ PTT
+2026-01-31 19:08:07,133 - INFO - SET: พบ 0 ข่าวสำหรับ PTT
+2026-01-31 19:08:07,384 - INFO - Investing: พบ 0 ข่าวสำหรับ PTT
+2026-01-31 19:08:07,480 - INFO - Manager: พบ 0 ข่าวสำหรับ PTT
+2026-01-31 19:08:07,596 - INFO - HTTP Request: POST https://ankvysfiennumjheouks.supabase.co/rest/v1/stock_news?on_conflict=symbol%2C+news_date%2C+title&columns=%22source%22%2C%22category%22%2C%22title%22%2C%22symbol%22%2C%22news_date%22%2C%22summary%22%2C%22url%22 "HTTP/2 201 Created"
+2026-01-31 19:08:07,598 - INFO - นำเข้า 2 ข่าวสำหรับ PTT จากทุกแหล่งสำเร็จ
+2026-01-31 19:08:07,599 - INFO -   - Kaohoon: CGSI มองกรอบ SET วันนี้1,320-1,350 จุด ชูหุ้นเด่น GULF-PTTEP (2026-01-30)
+2026-01-31 19:08:07,599 - INFO -   - Kaohoon: อสังหาฯ จีนคลายล็อก กรุงศรีแนะสะสม IVL-PTTGC-SCC-SCGP รับบวก China Plays (2026-01-30)
+2026-01-31 19:08:10,600 - INFO - เริ่มดึงข่าว PTTEP จากทุกแหล่ง...
+2026-01-31 19:08:21,268 - INFO - Kaohoon: พบ 2 ข่าวสำหรับ PTTEP
+2026-01-31 19:08:21,908 - INFO - SET: พบ 0 ข่าวสำหรับ PTTEP
+2026-01-31 19:08:22,127 - INFO - Investing: พบ 0 ข่าวสำหรับ PTTEP
+2026-01-31 19:08:22,216 - INFO - Manager: พบ 0 ข่าวสำหรับ PTTEP
+2026-01-31 19:08:22,363 - INFO - HTTP Request: POST https://ankvysfiennumjheouks.supabase.co/rest/v1/stock_news?on_conflict=symbol%2C+news_date%2C+title&columns=%22source%22%2C%22category%22%2C%22title%22%2C%22symbol%22%2C%22news_date%22%2C%22summary%22%2C%22url%22 "HTTP/2 201 Created"
+2026-01-31 19:08:22,365 - INFO - นำเข้า 2 ข่าวสำหรับ PTTEP จากทุกแหล่งสำเร็จ
+2026-01-31 19:08:22,366 - INFO -   - Kaohoon: CGSI มองกรอบ SET วันนี้1,320-1,350 จุด ชูหุ้นเด่น GULF-PTTEP (2026-01-30)
+2026-01-31 19:08:22,366 - INFO -   - Kaohoon: CGSI มองกรอบ SET วันนี้แกว่งตัว 1,300-1,330 จุด ชูหุ้นเด่น PTTEP-SCB (2026-01-29)
+2026-01-31 19:08:25,367 - INFO - เริ่มดึงข่าว PTTGC จากทุกแหล่ง...
+2026-01-31 19:08:36,516 - INFO - Kaohoon: พบ 1 ข่าวสำหรับ PTTGC
+2026-01-31 19:08:36,998 - INFO - SET: พบ 0 ข่าวสำหรับ PTTGC
+2026-01-31 19:08:37,335 - INFO - Investing: พบ 0 ข่าวสำหรับ PTTGC
+2026-01-31 19:08:37,415 - INFO - Manager: พบ 0 ข่าวสำหรับ PTTGC
+2026-01-31 19:08:37,532 - INFO - HTTP Request: POST https://ankvysfiennumjheouks.supabase.co/rest/v1/stock_news?on_conflict=symbol%2C+news_date%2C+title&columns=%22source%22%2C%22category%22%2C%22title%22%2C%22symbol%22%2C%22news_date%22%2C%22summary%22%2C%22url%22 "HTTP/2 201 Created"
+2026-01-31 19:08:37,533 - INFO - นำเข้า 1 ข่าวสำหรับ PTTGC จากทุกแหล่งสำเร็จ
+2026-01-31 19:08:37,534 - INFO -   - Kaohoon: อสังหาฯ จีนคลายล็อก กรุงศรีแนะสะสม IVL-PTTGC-SCC-SCGP รับบวก China Plays (2026-01-30)
+2026-01-31 19:08:40,535 - INFO - เริ่มดึงข่าว SAWAD จากทุกแหล่ง...
+2026-01-31 19:08:52,408 - INFO - Kaohoon: พบ 0 ข่าวสำหรับ SAWAD
+2026-01-31 19:08:52,888 - INFO - SET: พบ 0 ข่าวสำหรับ SAWAD
+2026-01-31 19:08:53,116 - INFO - Investing: พบ 0 ข่าวสำหรับ SAWAD
+2026-01-31 19:08:53,202 - INFO - Manager: พบ 0 ข่าวสำหรับ SAWAD
+2026-01-31 19:08:56,203 - INFO - เริ่มดึงข่าว SCB จากทุกแหล่ง...
+2026-01-31 19:09:06,994 - INFO - Kaohoon: พบ 2 ข่าวสำหรับ SCB
+2026-01-31 19:09:07,696 - INFO - SET: พบ 0 ข่าวสำหรับ SCB
+2026-01-31 19:09:07,939 - INFO - Investing: พบ 0 ข่าวสำหรับ SCB
+2026-01-31 19:09:08,079 - INFO - Manager: พบ 0 ข่าวสำหรับ SCB
+2026-01-31 19:09:08,295 - INFO - HTTP Request: POST https://ankvysfiennumjheouks.supabase.co/rest/v1/stock_news?on_conflict=symbol%2C+news_date%2C+title&columns=%22source%22%2C%22category%22%2C%22title%22%2C%22symbol%22%2C%22news_date%22%2C%22summary%22%2C%22url%22 "HTTP/2 201 Created"
+2026-01-31 19:09:08,297 - INFO - นำเข้า 2 ข่าวสำหรับ SCB จากทุกแหล่งสำเร็จ
+2026-01-31 19:09:08,297 - INFO -   - Kaohoon: SCB EIC เตือนเศรษฐกิจไทยปี 69 แผ่ว แรงกระตุ้นรัฐถดถอย-ส่งออกเสี่ยงหด (2026-01-30)
+2026-01-31 19:09:08,298 - INFO -   - Kaohoon: SCB Financial Markets คาดกรอบเงินบาท 31.30-31.55 บ./ดอลลาร์ (2026-01-30)
+2026-01-31 19:09:11,299 - INFO - เริ่มดึงข่าว SCC จากทุกแหล่ง...
+2026-01-31 19:09:22,265 - INFO - Kaohoon: พบ 2 ข่าวสำหรับ SCC
+2026-01-31 19:09:23,062 - INFO - SET: พบ 0 ข่าวสำหรับ SCC
+2026-01-31 19:09:23,466 - INFO - Investing: พบ 0 ข่าวสำหรับ SCC
+2026-01-31 19:09:23,555 - INFO - Manager: พบ 0 ข่าวสำหรับ SCC
+2026-01-31 19:09:23,688 - INFO - HTTP Request: POST https://ankvysfiennumjheouks.supabase.co/rest/v1/stock_news?on_conflict=symbol%2C+news_date%2C+title&columns=%22source%22%2C%22category%22%2C%22title%22%2C%22symbol%22%2C%22news_date%22%2C%22summary%22%2C%22url%22 "HTTP/2 201 Created"
+2026-01-31 19:09:23,690 - INFO - นำเข้า 2 ข่าวสำหรับ SCC จากทุกแหล่งสำเร็จ
+2026-01-31 19:09:23,691 - INFO -   - Kaohoon: อสังหาฯ จีนคลายล็อก กรุงศรีแนะสะสม IVL-PTTGC-SCC-SCGP รับบวก China Plays (2026-01-30)
+2026-01-31 19:09:23,691 - INFO -   - Kaohoon: “โรบอทเทรด” กินวอลุ่มตลาด 43% แรงขาย SCC กดราคาปิดลบ 6% (2026-01-29)
+2026-01-31 19:09:26,692 - INFO - เริ่มดึงข่าว SCGP จากทุกแหล่ง...
+2026-01-31 19:09:38,855 - INFO - Kaohoon: พบ 1 ข่าวสำหรับ SCGP
+2026-01-31 19:09:39,470 - INFO - SET: พบ 0 ข่าวสำหรับ SCGP
+2026-01-31 19:09:39,674 - INFO - Investing: พบ 0 ข่าวสำหรับ SCGP
+2026-01-31 19:09:39,767 - INFO - Manager: พบ 0 ข่าวสำหรับ SCGP
+2026-01-31 19:09:39,915 - INFO - HTTP Request: POST https://ankvysfiennumjheouks.supabase.co/rest/v1/stock_news?on_conflict=symbol%2C+news_date%2C+title&columns=%22source%22%2C%22category%22%2C%22title%22%2C%22symbol%22%2C%22news_date%22%2C%22summary%22%2C%22url%22 "HTTP/2 201 Created"
+2026-01-31 19:09:39,917 - INFO - นำเข้า 1 ข่าวสำหรับ SCGP จากทุกแหล่งสำเร็จ
+2026-01-31 19:09:39,917 - INFO -   - Kaohoon: อสังหาฯ จีนคลายล็อก กรุงศรีแนะสะสม IVL-PTTGC-SCC-SCGP รับบวก China Plays (2026-01-30)
+2026-01-31 19:09:42,918 - INFO - เริ่มดึงข่าว TISCO จากทุกแหล่ง...
+2026-01-31 19:09:55,024 - INFO - Kaohoon: พบ 0 ข่าวสำหรับ TISCO
+2026-01-31 19:09:55,725 - INFO - SET: พบ 0 ข่าวสำหรับ TISCO
+2026-01-31 19:09:56,073 - INFO - Investing: พบ 0 ข่าวสำหรับ TISCO
+2026-01-31 19:09:56,155 - INFO - Manager: พบ 0 ข่าวสำหรับ TISCO
+2026-01-31 19:09:59,155 - INFO - เริ่มดึงข่าว TOP จากทุกแหล่ง...
+2026-01-31 19:10:10,397 - INFO - Kaohoon: พบ 0 ข่าวสำหรับ TOP
+2026-01-31 19:10:10,866 - INFO - SET: พบ 0 ข่าวสำหรับ TOP
+2026-01-31 19:10:11,077 - INFO - Investing: พบ 0 ข่าวสำหรับ TOP
+2026-01-31 19:10:11,155 - INFO - Manager: พบ 0 ข่าวสำหรับ TOP
+2026-01-31 19:10:14,156 - INFO - เริ่มดึงข่าว TRUE จากทุกแหล่ง...
+2026-01-31 19:10:24,974 - INFO - Kaohoon: พบ 5 ข่าวสำหรับ TRUE
+2026-01-31 19:10:25,614 - INFO - SET: พบ 0 ข่าวสำหรับ TRUE
+2026-01-31 19:10:25,815 - INFO - Investing: พบ 0 ข่าวสำหรับ TRUE
+2026-01-31 19:10:25,898 - INFO - Manager: พบ 0 ข่าวสำหรับ TRUE
+2026-01-31 19:10:26,054 - INFO - HTTP Request: POST https://ankvysfiennumjheouks.supabase.co/rest/v1/stock_news?on_conflict=symbol%2C+news_date%2C+title&columns=%22source%22%2C%22category%22%2C%22title%22%2C%22symbol%22%2C%22news_date%22%2C%22summary%22%2C%22url%22 "HTTP/2 201 Created"
+2026-01-31 19:10:26,056 - INFO - นำเข้า 5 ข่าวสำหรับ TRUE จากทุกแหล่งสำเร็จ
+2026-01-31 19:10:26,056 - INFO -   - Kaohoon: InnovestX จัดพอร์ตปี 69 แนะหุ้นนอกสหรัฐ เสริมตราสารหนี้–ทองคำ พ่วง 4 ธีมเด่นหุ้นไทย (2026-01-30)
+2026-01-31 19:10:26,057 - INFO -   - Kaohoon: สรุปกระดานรายใหญ่วันนี้ TRUE มูลค่าสูงสุด 1.64 พันล้านบาท (2026-01-30)
+2026-01-31 19:10:26,057 - INFO -   - Kaohoon: TRUE โผล่บิ๊กล็อต 1 พันล้านบาท ราคาเฉลี่ย 11.67 บ. ต่ำกว่ากระดาน 0.26% (2026-01-30)
+2026-01-31 19:10:26,058 - INFO -   - Kaohoon: สรุปกระดานรายใหญ่เช้านี้ TRUE มูลค่าสูงสุด 1 พันล้านบาท (2026-01-30)
+2026-01-31 19:10:26,058 - INFO -   - Kaohoon: TRUE บวกต่อ 2% โบรกชูเป้า 14.90 บาท ลุ้นกำไรปี 69 โตกระโดด 151% (2026-01-30)
+2026-01-31 19:10:29,059 - INFO - เริ่มดึงข่าว TTA จากทุกแหล่ง...
+2026-01-31 19:10:42,311 - INFO - Kaohoon: พบ 0 ข่าวสำหรับ TTA
+2026-01-31 19:10:42,899 - INFO - SET: พบ 0 ข่าวสำหรับ TTA
+2026-01-31 19:10:43,271 - INFO - Investing: พบ 0 ข่าวสำหรับ TTA
+2026-01-31 19:10:43,374 - INFO - Manager: พบ 0 ข่าวสำหรับ TTA
+2026-01-31 19:10:46,375 - INFO - เริ่มดึงข่าว TU จากทุกแหล่ง...
+2026-01-31 19:10:56,549 - INFO - Kaohoon: พบ 2 ข่าวสำหรับ TU
+2026-01-31 19:10:57,476 - INFO - SET: พบ 0 ข่าวสำหรับ TU
+2026-01-31 19:10:57,675 - INFO - Investing: พบ 0 ข่าวสำหรับ TU
+2026-01-31 19:10:57,761 - INFO - Manager: พบ 0 ข่าวสำหรับ TU
+2026-01-31 19:10:58,489 - INFO - HTTP Request: POST https://ankvysfiennumjheouks.supabase.co/rest/v1/stock_news?on_conflict=symbol%2C+news_date%2C+title&columns=%22source%22%2C%22category%22%2C%22title%22%2C%22symbol%22%2C%22news_date%22%2C%22summary%22%2C%22url%22 "HTTP/2 201 Created"
+2026-01-31 19:10:58,491 - INFO - นำเข้า 2 ข่าวสำหรับ TU จากทุกแหล่งสำเร็จ
+2026-01-31 19:10:58,491 - INFO -   - Kaohoon: เปิดโผหุ้น SET50 “เด่น-ดิ่ง” เดือนมกราคม! TU ท็อปฟอร์มพุ่ง 8.47% (2026-01-31)
+2026-01-31 19:10:58,492 - INFO -   - Kaohoon: InnovestX จัดพอร์ตปี 69 แนะหุ้นนอกสหรัฐ เสริมตราสารหนี้–ทองคำ พ่วง 4 ธีมเด่นหุ้นไทย (2026-01-30)
+2026-01-31 19:11:01,492 - INFO - เริ่มดึงข่าว VGI จากทุกแหล่ง...
+2026-01-31 19:11:13,156 - INFO - Kaohoon: พบ 0 ข่าวสำหรับ VGI
+2026-01-31 19:11:13,639 - INFO - SET: พบ 0 ข่าวสำหรับ VGI
+2026-01-31 19:11:13,846 - INFO - Investing: พบ 0 ข่าวสำหรับ VGI
+2026-01-31 19:11:13,935 - INFO - Manager: พบ 0 ข่าวสำหรับ VGI
+2026-01-31 19:11:16,936 - INFO - เริ่มดึงข่าว WHA จากทุกแหล่ง...
+2026-01-31 19:11:27,219 - INFO - Kaohoon: พบ 1 ข่าวสำหรับ WHA
+2026-01-31 19:11:27,902 - INFO - SET: พบ 0 ข่าวสำหรับ WHA
+2026-01-31 19:11:28,116 - INFO - Investing: พบ 0 ข่าวสำหรับ WHA
+2026-01-31 19:11:28,193 - INFO - Manager: พบ 0 ข่าวสำหรับ WHA
+2026-01-31 19:11:28,633 - INFO - HTTP Request: POST https://ankvysfiennumjheouks.supabase.co/rest/v1/stock_news?on_conflict=symbol%2C+news_date%2C+title&columns=%22source%22%2C%22category%22%2C%22title%22%2C%22symbol%22%2C%22news_date%22%2C%22summary%22%2C%22url%22 "HTTP/2 201 Created"
+2026-01-31 19:11:28,634 - INFO - นำเข้า 1 ข่าวสำหรับ WHA จากทุกแหล่งสำเร็จ
+2026-01-31 19:11:28,635 - INFO -   - Kaohoon: เปิด 20 อันดับหุ้นถูก “Cover-Short” สูงสุด ณ 29 ม.ค.69 (2026-01-30)
+2026-01-31 19:11:31,636 - INFO - เริ่มดึงข่าว AMATA จากทุกแหล่ง...
+2026-01-31 19:11:45,295 - INFO - Kaohoon: พบ 0 ข่าวสำหรับ AMATA
+2026-01-31 19:11:45,965 - INFO - SET: พบ 0 ข่าวสำหรับ AMATA
+2026-01-31 19:11:46,330 - INFO - Investing: พบ 0 ข่าวสำหรับ AMATA
+2026-01-31 19:11:46,411 - INFO - Manager: พบ 0 ข่าวสำหรับ AMATA
+2026-01-31 19:11:49,412 - INFO - เริ่มดึงข่าว BCH จากทุกแหล่ง...
+2026-01-31 19:12:00,811 - INFO - Kaohoon: พบ 0 ข่าวสำหรับ BCH
+2026-01-31 19:12:01,474 - INFO - SET: พบ 0 ข่าวสำหรับ BCH
+2026-01-31 19:12:01,710 - INFO - Investing: พบ 0 ข่าวสำหรับ BCH
+2026-01-31 19:12:01,805 - INFO - Manager: พบ 0 ข่าวสำหรับ BCH
+2026-01-31 19:12:04,806 - INFO - เริ่มดึงข่าว CRC จากทุกแหล่ง...
+2026-01-31 19:12:16,547 - INFO - Kaohoon: พบ 0 ข่าวสำหรับ CRC
+2026-01-31 19:12:17,173 - INFO - SET: พบ 0 ข่าวสำหรับ CRC
+2026-01-31 19:12:17,406 - INFO - Investing: พบ 0 ข่าวสำหรับ CRC
+2026-01-31 19:12:17,504 - INFO - Manager: พบ 0 ข่าวสำหรับ CRC
+2026-01-31 19:12:20,505 - INFO - เริ่มดึงข่าว JMT จากทุกแหล่ง...
+2026-01-31 19:12:31,968 - INFO - Kaohoon: พบ 0 ข่าวสำหรับ JMT
+2026-01-31 19:12:32,852 - INFO - SET: พบ 0 ข่าวสำหรับ JMT
+2026-01-31 19:12:33,082 - INFO - Investing: พบ 0 ข่าวสำหรับ JMT
+2026-01-31 19:12:33,166 - INFO - Manager: พบ 0 ข่าวสำหรับ JMT
+2026-01-31 19:12:36,168 - INFO - 
+สรุปการอัพเดตวันนี้: นำเข้าข่าวทั้งหมด 57 ข่าวจาก 49 หุ้น
+2026-01-31 19:12:36,168 - INFO - อัพเดตเสร็จสิ้น
