@@ -18,12 +18,13 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.10'
+          python-version: '3.11'  # ขยับขึ้นเป็น 3.11 เพื่อแก้ปัญหา Library
 
       - name: Install Dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install yfinance "pandas<2.2.0" "numpy<2.0.0" supabase python-dotenv plotly pandas-ta==0.3.14b0
+          pip install yfinance pandas supabase python-dotenv plotly
+          pip install pandas-ta --user || pip install pandas-ta 
 
       - name: Run Pipeline
         env:
