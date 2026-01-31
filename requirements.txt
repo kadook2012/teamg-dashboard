@@ -4,4 +4,4 @@ numpy<2.0.0
 supabase
 python-dotenv
 plotly
-pandas_ta
+pandas-ta @ git+https://github.com/twopirllc/pandas-ta.git@main
