@@ -3,89 +3,103 @@ import pandas as pd
 import numpy as np
 from supabase import create_client
 import os
-import requests
 from dotenv import load_dotenv
 
-# 1. Load Environment Variables
+# --- 1. INITIAL SETTING ---
 load_dotenv()
-SUPABASE_URL = os.getenv("SUPABASE_URL")
-SUPABASE_KEY = os.getenv("SUPABASE_KEY")
-TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
-TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
-supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
+url = os.getenv("SUPABASE_URL")
+key = os.getenv("SUPABASE_KEY")
+supabase = create_client(url, key)
 
-def send_telegram_msg(message):
-    if not TELEGRAM_TOKEN or not TELEGRAM_CHAT_ID: return
-    url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage"
-    payload = {"chat_id": TELEGRAM_CHAT_ID, "text": message, "parse_mode": "HTML"}
+# รายชื่อหุ้น (อนาคตเพิ่มได้ถึง 800 ตัว)
+STOCKS = ["TEAMG.BK"] 
+
+def get_and_upsert_info(symbol):
+    """ดึงข้อมูลงบการเงินและข้อมูลบริษัทเข้าตาราง master_info"""
+    print(f"📊 Fetching info for {symbol}...")
     try:
-        requests.post(url, json=payload)
+        ticker = yf.Ticker(symbol)
+        info = ticker.info
+        
+        info_data = {
+            "symbol": symbol,
+            "company_name": info.get("longName"),
+            "sector": info.get("sector"),
+            "industry": info.get("industry"),
+            "market_cap": info.get("marketCap"),
+            "roe": info.get("returnOnEquity"),
+            "roa": info.get("returnOnAssets"),
+            "net_margin": info.get("profitMargins")
+        }
+        
+        # ล้างค่าที่เป็น NaN เพื่อป้องกัน Error
+        info_cleaned = {k: (v if pd.notnull(v) else None) for k, v in info_data.items()}
+        
+        supabase.table("teamg_master_info").upsert(info_cleaned).execute()
+        print(f"✅ Info updated for {symbol}")
     except Exception as e:
-        print(f"Telegram Error: {e}")
+        print(f"❌ Error updating info for {symbol}: {e}")
 
-def calculate_indicators(df):
-    # RSI 14
+def calculate_technical(df):
+    """คำนวณ Technical Indicators ตามโครงสร้างเดิมที่ Dashboard ต้องการ"""
+    # EMA
+    df['ema_50'] = df['close'].ewm(span=50, adjust=False).mean()
+    df['ema_200'] = df['close'].ewm(span=200, adjust=False).mean()
+    
+    # RSI
     window = 14
     delta = df['close'].diff()
     gain = (delta.where(delta > 0, 0)).rolling(window=window).mean()
     loss = (-delta.where(delta < 0, 0)).rolling(window=window).mean()
-    rs = gain / loss.replace(0, np.nan) 
-    df['rsi_14'] = 100 - (100 / (1 + rs))
+    df['rsi'] = 100 - (100 / (1 + (gain / loss.replace(0, np.nan))))
     
-    # EMA 20
-    df['ema_20'] = df['close'].ewm(span=20, adjust=False).mean()
+    # MACD
+    exp1 = df['close'].ewm(span=12, adjust=False).mean()
+    exp2 = df['close'].ewm(span=26, adjust=False).mean()
+    df['macd'] = exp1 - exp2
+    df['macd_signal'] = df['macd'].ewm(span=9, adjust=False).mean()
+    df['macd_hist'] = df['macd'] - df['macd_signal']
     
-    # Volume Spike 200%
-    df['vol_avg_5'] = df['volume'].shift(1).rolling(window=5).mean()
-    df['vol_spike'] = (df['volume'] > (df['vol_avg_5'] * 2)) & (df['vol_avg_5'] > 0)
+    # Z-Score (เทียบกับราคาเฉลี่ย 20 วัน)
+    df['z_score'] = (df['close'] - df['close'].rolling(20).mean()) / df['close'].rolling(20).std()
+    
     return df
 
-def get_stock_data(symbol="TEAMG.BK"):
-    print(f"🚀 Fetching data for {symbol}...")
-    # ดึงข้อมูลและจัดการ Multi-index ทันที
-    df = yf.download(symbol, period="1y", interval="1d", auto_adjust=True)
-    
-    if df.empty or len(df) < 20:
-        print(f"❌ No data found.")
-        return None
-
-    # แก้ปัญหา Multi-Index จาก yfinance
-    if isinstance(df.columns, pd.MultiIndex):
-        df.columns = df.columns.get_level_values(0)
-
-    # แปลงชื่อคอลัมน์เป็นตัวพิมพ์เล็กให้หมดก่อนคำนวณ
-    df.columns = [c.lower() for c in df.columns]
-    df = df.reset_index()
-    df.columns = [c.lower() for c in df.columns] # ทำซ้ำเพื่อความชัวร์หลัง reset_index
-
-    # คำนวณค่าต่างๆ
-    df = calculate_indicators(df)
-    df = df.dropna(subset=['rsi_14'])
-    
-    # จัดฟอร์แมตข้อมูล
-    df['vol_spike'] = df['vol_spike'].astype(int)
-    df['date'] = pd.to_datetime(df['date']).dt.strftime('%Y-%m-%d')
-    df['symbol'] = symbol
-    
-    # เลือกคอลัมน์ให้ตรงกับ Supabase (image_186dad.png)
-    cols = ['date', 'symbol', 'open', 'high', 'low', 'close', 'volume', 'rsi_14', 'ema_20', 'vol_spike']
-    return df[cols].to_dict(orient='records')
-
-def upload_to_supabase(data):
-    if not data: return
-    print(f"📤 Updating Supabase with {len(data)} rows...")
+def get_and_upsert_analysis(symbol):
+    """ดึงราคาและคำนวณ Technical เข้าตาราง master_analysis"""
+    print(f"🚀 Fetching price analysis for {symbol}...")
     try:
-        supabase.table("stock_prices").upsert(data).execute()
-        print("🎉 Success! Data updated.")
-        
-        last_day = data[-1]
-        if last_day['vol_spike'] == 1:
-            msg = f"🚀 <b>Volume Spike!</b>\nหุ้น: <code>{last_day['symbol']}</code>\nวันที่: {last_day['date']}\nปิด: {last_day['close']:.2f}\nVol: {last_day['volume']:,}"
-            send_telegram_msg(msg)
-    except Exception as e:
-        print(f"❌ Upsert Error: {e}")
+        df = yf.download(symbol, period="2y", interval="1d", auto_adjust=True)
+        if df.empty: return
 
+        # จัดการชื่อคอลัมน์ให้เป็นตัวเล็ก
+        if isinstance(df.columns, pd.MultiIndex): df.columns = df.columns.get_level_values(0)
+        df.columns = [c.lower() for c in df.columns]
+        df = df.reset_index()
+        df.columns = [c.lower() for c in df.columns]
+
+        # คำนวณค่าต่างๆ
+        df = calculate_technical(df)
+        df['symbol'] = symbol
+        df['date'] = pd.to_datetime(df['date']).dt.strftime('%Y-%m-%d')
+        
+        # แทนที่ค่า NaN/Inf ด้วย None เพื่อให้ Supabase รับได้
+        df = df.replace({np.nan: None, np.inf: None, -np.inf: None})
+        
+        # แปลงเป็น List of Dicts
+        records = df.to_dict(orient='records')
+        
+        # Upsert ทีละ Batch เพื่อความเสถียร
+        supabase.table("teamg_master_analysis").upsert(records).execute()
+        print(f"✅ Price analysis updated for {symbol} ({len(records)} rows)")
+    except Exception as e:
+        print(f"❌ Error updating analysis for {symbol}: {e}")
+
+# --- 2. EXECUTION ---
 if __name__ == "__main__":
-    stock_data = get_stock_data("TEAMG.BK")
-    if stock_data:
-        upload_to_supabase(stock_data)
+    for s in STOCKS:
+        print(f"--- Processing {s} ---")
+        get_and_upsert_info(s)      # อัปเดตข้อมูลพื้นฐาน (ลง table: teamg_master_info)
+        get_and_upsert_analysis(s)  # อัปเดตราคาและเทคนิคัล (ลง table: teamg_master_analysis)
+        
+    print("\n🎉 All tasks completed successfully!")

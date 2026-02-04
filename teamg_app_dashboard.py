@@ -6,26 +6,23 @@ from supabase import create_client
 import os
 from dotenv import load_dotenv
 
-# --- 1. SETTING & THEME (ปรับปรุงสีเพื่อการอ่านที่ง่ายขึ้น) ---
+# --- 1. SETTING & THEME (คงเดิม) ---
 load_dotenv()
 st.set_page_config(layout="wide", page_title="TEAMG Strategic Dashboard")
 
 st.markdown("""
     <style>
-    /* ปรับปรุงกล่อง Metric ให้ตัวหนังสือหัวข้อ (Label) เห็นชัดขึ้น */
     [data-testid="stMetric"] {
         background-color: #1e293b; 
         border: 1px solid #475569;
         padding: 20px;
         border-radius: 12px;
     }
-    /* บังคับให้ Label (ชื่อหัวข้อเล็กๆ) เป็นสีขาวสว่าง */
     [data-testid="stMetricLabel"] {
         color: #f8fafc !important;
         font-weight: 500 !important;
         font-size: 14px !important;
     }
-    /* สีของตัวเลขหลัก */
     [data-testid="stMetricValue"] { 
         color: #00ff88 !important; 
     }
@@ -41,44 +38,59 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-# --- 2. DATA CONNECTION ---
+# --- 2. DATA CONNECTION (ปรับดึงผ่าน View เพื่อให้ได้ข้อมูลครบแบบเดิม) ---
 url = os.getenv("SUPABASE_URL")
 key = os.getenv("SUPABASE_KEY")
 supabase = create_client(url, key)
 
 @st.cache_data(ttl=10)
 def load_all_data():
-    m_res = supabase.table("teamg_master_analysis").select("*").order("date", desc=True).limit(2000).execute()
+    # เปลี่ยนจากดึงตารางตรงๆ เป็นดึงผ่าน View (v_stock_master_full)
+    m_res = supabase.table("v_stock_master_full").select("*").order("date", desc=True).limit(2000).execute()
     n_res = supabase.table("teamg_news_headers").select("*").order("date", desc=True).limit(8).execute()
+    
     df_raw = pd.DataFrame(m_res.data)
-    df_raw.columns = [col.lower() for col in df_raw.columns]
-    df_plot = df_raw.sort_values("date", ascending=True)
-    return df_raw, df_plot, pd.DataFrame(n_res.data)
+    if not df_raw.empty:
+        df_raw.columns = [col.lower() for col in df_raw.columns]
+        # Mapping ค่า z_score ให้รองรับชื่อคอลัมน์ใหม่
+        if 'z_score' not in df_raw.columns and 'z_score_price' in df_raw.columns:
+            df_raw['z_score'] = df_raw['z_score_price']
+            
+        df_plot = df_raw.sort_values("date", ascending=True)
+        return df_raw, df_plot, pd.DataFrame(n_res.data)
+    return pd.DataFrame(), pd.DataFrame(), pd.DataFrame()
 
 df_raw, df_plot, news_df = load_all_data()
 
-# --- 3. HEADER ---
+# --- 3. HEADER (คงเดิม) ---
 st.title("🏹 TEAMG Strategic Dashboard V.11.7 (Latest)")
 if not df_raw.empty:
     latest_date = df_raw['date'].iloc[0]
     st.success(f"✅ ข้อมูลในระบบอัปเดตล่าสุดถึงวันที่: **{latest_date}**")
 
-# --- 4. TOP SECTION: FINANCIAL HEALTH (DuPont) ---
+# --- 4. TOP SECTION: FINANCIAL HEALTH (แสดงผลแบบเดิม) ---
 st.subheader("💎 Financial Health Insights (DuPont)")
 if not df_raw.empty:
-    # ค้นหาย้อนหลังหาแถวที่มีค่า ROE เพื่อป้องกันค่า 0.00
-    df_fund = df_raw[df_raw['roe'] > 0]
-    latest_fin = df_fund.iloc[0] if not df_fund.empty else df_raw.iloc[0]
+    # เลือกแถวล่าสุด
+    latest_fin = df_raw.iloc[0]
     
     m1, m2, m3, m4 = st.columns(4)
-    with m1: st.metric("Efficiency (ROE)", f"{latest_fin.get('roe', 0)*100:.2f} %")
-    with m2: st.metric("Profitability (Margin)", f"{latest_fin.get('net_margin', 0)*100:.2f} %")
-    with m3: st.metric("Asset Velocity (ATO)", f"{latest_fin.get('asset_turnover', 0):.2f} x")
-    with m4: st.metric("Z-Score (Volatility)", f"{df_raw.iloc[0].get('z_score', 0):.2f}")
+    with m1: 
+        val = latest_fin.get('roe', 0)
+        st.metric("Efficiency (ROE)", f"{float(val)*100 if val else 0:.2f} %")
+    with m2: 
+        val = latest_fin.get('net_margin', 0)
+        st.metric("Profitability (Margin)", f"{float(val)*100 if val else 0:.2f} %")
+    with m3: 
+        val = latest_fin.get('asset_turnover', 0)
+        st.metric("Asset Velocity (ATO)", f"{float(val) if val else 0:.2f} x")
+    with m4: 
+        val = latest_fin.get('z_score', 0)
+        st.metric("Z-Score (Volatility)", f"{float(val) if val else 0:.2f}")
 
 st.write("---")
 
-# --- 5. MIDDLE SECTION: TECHNICAL GRAPH (4 Layers) ---
+# --- 5. MIDDLE SECTION: TECHNICAL GRAPH (คงเดิม) ---
 st.subheader("📊 Multi-Layer Technical Analysis")
 fig = make_subplots(
     rows=4, cols=1, shared_xaxes=True, vertical_spacing=0.03,
@@ -106,7 +118,7 @@ fig.add_hline(y=2, line_dash="dash", line_color="red", row=4, col=1); fig.add_hl
 fig.update_layout(height=1100, template='plotly_dark', xaxis_rangeslider_visible=False)
 st.plotly_chart(fig, use_container_width=True)
 
-# --- 6. BOTTOM SECTION: NEWS TIMELINE ---
+# --- 6. BOTTOM SECTION: NEWS TIMELINE (คงเดิม) ---
 st.write("---")
 st.subheader("📰 Market Intelligence Timeline")
 if not news_df.empty:
@@ -125,7 +137,7 @@ if not news_df.empty:
                         </div>
                     """, unsafe_allow_html=True)
 
-# --- 7. RAW DATA EXPLORER ---
+# --- 7. RAW DATA EXPLORER (คงเดิม) ---
 with st.expander("🔍 Raw Data Explorer (Latest -> Past)", expanded=True):
     display_map = {
         "date": "Date", "close": "Close (THB)", "rsi": "RSI (14)", 
@@ -133,4 +145,5 @@ with st.expander("🔍 Raw Data Explorer (Latest -> Past)", expanded=True):
         "roe": "ROE (%)", "net_margin": "Net Margin (%)", "asset_turnover": "ATO (x)"
     }
     df_view = df_raw.rename(columns=display_map)
-    st.dataframe(df_view[[v for k, v in display_map.items() if k in df_raw.columns]], use_container_width=True)
+    cols_to_show = [v for k, v in display_map.items() if k in df_raw.columns]
+    st.dataframe(df_view[cols_to_show], use_container_width=True)
