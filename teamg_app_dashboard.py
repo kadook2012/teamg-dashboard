@@ -11,7 +11,7 @@ supabase = create_client(os.getenv("SUPABASE_URL"), os.getenv("SUPABASE_KEY"))
 
 @st.cache_data(ttl=10)
 def load_data():
-    # ดึงข้อมูลตรงจากตารางหลัก
+    # ดึงจากตารางหลักโดยตรง ไม่ผ่าน View
     res = supabase.table("teamg_master_analysis").select("*").order("date", desc=True).limit(1000).execute()
     return pd.DataFrame(res.data)
 
@@ -21,16 +21,20 @@ if not df.empty:
     df.columns = [c.lower() for c in df.columns]
     latest = df.iloc[0]
 
-    st.title(f"🏹 TEAMG Dashboard - Update: {latest['date']}")
+    st.title(f"🏹 TEAMG Dashboard - ข้อมูลล่าสุด: {latest['date']}")
 
-    # --- Metrics Section ---
+    # --- ส่วนแสดง Metric หลัก ---
     m1, m2, m3, m4 = st.columns(4)
-    with m1: st.metric("ROE (%)", f"{float(latest.get('roe', 0))*100:.2f} %")
-    with m2: st.metric("Net Margin (%)", f"{float(latest.get('net_margin', 0))*100:.2f} %")
-    with m3: st.metric("Z-Score", f"{float(latest.get('z_score', 0)):.2f}")
-    with m4: st.metric("Close Price", f"{latest['close']:.2f}")
+    with m1:
+        st.metric("ROE (%)", f"{float(latest.get('roe', 0))*100:.2f} %")
+    with m2:
+        st.metric("Net Margin (%)", f"{float(latest.get('net_margin', 0))*100:.2f} %")
+    with m3:
+        st.metric("Z-Score (Volatility)", f"{float(latest.get('z_score', 0)):.2f}")
+    with m4:
+        st.metric("Close Price", f"{latest['close']:.2f}")
 
-    # --- Chart Section ---
+    # --- กราฟเดิมที่ต้องการ ---
     df_plot = df.sort_values("date")
     fig = go.Figure()
     fig.add_trace(go.Candlestick(x=df_plot['date'], open=df_plot['open'], 
@@ -40,6 +44,6 @@ if not df.empty:
     fig.update_layout(height=600, template="plotly_dark", xaxis_rangeslider_visible=False)
     st.plotly_chart(fig, use_container_width=True)
 
-    # --- Raw Data Table ---
-    st.write("### ข้อมูลย้อนหลังล่าสุด")
+    # --- ตารางข้อมูลดิบ ---
+    st.write("### ตารางข้อมูลล่าสุด")
     st.dataframe(df[['date', 'close', 'rsi', 'z_score', 'roe']].head(10), use_container_width=True)
