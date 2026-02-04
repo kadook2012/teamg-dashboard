@@ -45,15 +45,15 @@ supabase = create_client(url, key)
 
 @st.cache_data(ttl=10)
 def load_all_data():
-    # ดึงข้อมูลจาก View ที่เราสร้าง (รวมราคา + พื้นฐานแล้ว)
+    # ดึงข้อมูลจาก View (ซึ่งรวมข้อมูลพื้นฐานจาก master_info มาให้แล้วทุกแถว)
     m_res = supabase.table("teamg_master_view").select("*").order("date", desc=True).limit(2000).execute()
-    # ดึงข่าวจากตารางข่าวปกติ
     n_res = supabase.table("teamg_news_headers").select("*").order("date", desc=True).limit(8).execute()
     
     df_raw = pd.DataFrame(m_res.data)
     if not df_raw.empty:
         df_raw.columns = [col.lower() for col in df_raw.columns]
-        # บังคับให้ชื่อ Z-Score ตรงกับที่กราฟเรียกใช้
+        
+        # ตรวจสอบชื่อคอลัมน์ z_score ให้รองรับทั้งโครงสร้างเก่าและใหม่
         if 'z_score' not in df_raw.columns and 'z_score_price' in df_raw.columns:
             df_raw['z_score'] = df_raw['z_score_price']
             
@@ -64,14 +64,16 @@ def load_all_data():
 df_raw, df_plot, news_df = load_all_data()
 
 # --- 3. HEADER ---
-st.title("🏹 TEAMG Strategic Dashboard V.11.8")
+st.title("🏹 TEAMG Strategic Dashboard V.11.9 (Latest)")
 if not df_raw.empty:
     latest_date = df_raw['date'].iloc[0]
-    st.success(f"✅ ข้อมูลอัปเดตล่าสุด: **{latest_date}**")
+    st.success(f"✅ ข้อมูลในระบบอัปเดตล่าสุดถึงวันที่: **{latest_date}**")
 
-# --- 4. TOP SECTION: FINANCIAL HEALTH (แสดงค่าจาก View) ---
-st.subheader("💎 Financial Health Insights (DuPont)")
+# --- 4. TOP SECTION: FINANCIAL HEALTH ---
+st.subheader("💎 Financial Health Insights (Integrated Data)")
 if not df_raw.empty:
+    # เลือกแถวบนสุด (ข้อมูลล่าสุด) ทันที โดยไม่กรอง roe > 0
+    # เพราะข้อมูลปี 2026 จะดึง ROE จาก table info ผ่าน View มาแปะให้แล้ว
     latest_fin = df_raw.iloc[0]
     
     m1, m2, m3, m4 = st.columns(4)
@@ -82,12 +84,12 @@ if not df_raw.empty:
         margin = float(latest_fin.get('net_margin', 0)) * 100 if latest_fin.get('net_margin') else 0
         st.metric("Profitability (Margin)", f"{margin:.2f} %")
     with m3: 
-        # ใช้ Market Cap หรือ Asset Turnover ตามที่คุณต้องการ
+        # แสดงค่าที่ดึงมาจาก master_info
         m_cap = float(latest_fin.get('market_cap', 0)) / 1e6 if latest_fin.get('market_cap') else 0
         st.metric("Market Cap (M)", f"{m_cap:,.0f} THB")
     with m4: 
-        z_val = float(latest_fin.get('z_score', 0)) if latest_fin.get('z_score') else 0
-        st.metric("Z-Score (Volatility)", f"{z_val:.2f}")
+        z_val = latest_fin.get('z_score')
+        st.metric("Z-Score (Volatility)", f"{float(z_val):.2f}" if z_val is not None else "N/A")
 
 st.write("---")
 
@@ -100,7 +102,7 @@ if not df_plot.empty:
         subplot_titles=("Price & Indicators", "RSI Momentum", "MACD Trend", "Z-Score")
     )
 
-    # Price Chart
+    # Price & EMA
     fig.add_trace(go.Candlestick(x=df_plot['date'], open=df_plot['open'], high=df_plot['high'], low=df_plot['low'], close=df_plot['close'], name='Price'), row=1, col=1)
     fig.add_trace(go.Scatter(x=df_plot['date'], y=df_plot['ema_50'], name='EMA 50', line=dict(color='orange', width=1)), row=1, col=1)
     fig.add_trace(go.Scatter(x=df_plot['date'], y=df_plot['ema_200'], name='EMA 200', line=dict(color='red', width=1.5)), row=1, col=1)
@@ -143,12 +145,11 @@ if not news_df.empty:
                     """, unsafe_allow_html=True)
 
 # --- 7. RAW DATA EXPLORER ---
-with st.expander("🔍 Raw Data Explorer", expanded=True):
+with st.expander("🔍 Raw Data Explorer (Latest Data)", expanded=True):
     display_map = {
         "date": "Date", "close": "Close (THB)", "rsi": "RSI", 
         "z_score": "Z-Score", "ema_50": "EMA50", "ema_200": "EMA200", 
         "roe": "ROE (%)", "net_margin": "Net Margin (%)"
     }
-    # กรองคอลัมน์ที่มีอยู่จริงมาแสดง
     cols_to_show = [k for k in display_map.keys() if k in df_raw.columns]
     st.dataframe(df_raw[cols_to_show].rename(columns=display_map), use_container_width=True)
