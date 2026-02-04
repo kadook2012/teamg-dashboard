@@ -2694,3 +2694,296 @@
 2026-01-31 19:12:36,168 - INFO - 
 สรุปการอัพเดตวันนี้: นำเข้าข่าวทั้งหมด 57 ข่าวจาก 49 หุ้น
 2026-01-31 19:12:36,168 - INFO - อัพเดตเสร็จสิ้น
+2026-02-01 19:00:08,482 - INFO - เริ่มโปรแกรมอัพเดตข่าวหุ้น SET50...
+2026-02-01 19:00:08,485 - INFO - 
+=== เริ่มอัพเดตข่าว SET50 วันที่ 2026-02-01 19:00:08 ===
+2026-02-01 19:00:08,486 - INFO - เริ่มดึงข่าว AOT จากทุกแหล่ง...
+2026-02-01 19:00:20,145 - INFO - Kaohoon: พบ 1 ข่าวสำหรับ AOT
+2026-02-01 19:00:20,882 - INFO - SET: พบ 0 ข่าวสำหรับ AOT
+2026-02-01 19:00:21,093 - INFO - Investing: พบ 0 ข่าวสำหรับ AOT
+2026-02-01 19:00:21,199 - INFO - Manager: พบ 0 ข่าวสำหรับ AOT
+2026-02-01 19:00:22,818 - INFO - HTTP Request: POST https://ankvysfiennumjheouks.supabase.co/rest/v1/stock_news?on_conflict=symbol%2C+news_date%2C+title&columns=%22url%22%2C%22summary%22%2C%22source%22%2C%22news_date%22%2C%22symbol%22%2C%22category%22%2C%22title%22 "HTTP/2 200 OK"
+2026-02-01 19:00:22,821 - INFO - นำเข้า 1 ข่าวสำหรับ AOT จากทุกแหล่งสำเร็จ
+2026-02-01 19:00:22,821 - INFO -   - Kaohoon: KSS ชี้ MSCI จ่อขยับชั้น “หุ้นกรีซ” หนุนเม็ดเงินไหลเข้าไทย ชู 5 บิ๊กแคปรับอานิสงส์ (2026-01-29)
+2026-02-01 19:00:25,834 - INFO - เริ่มดึงข่าว ADVANC จากทุกแหล่ง...
+2026-02-01 19:00:37,785 - INFO - Kaohoon: พบ 0 ข่าวสำหรับ ADVANC
+2026-02-01 19:00:38,130 - INFO - SET: พบ 0 ข่าวสำหรับ ADVANC
+2026-02-01 19:00:38,307 - INFO - Investing: พบ 0 ข่าวสำหรับ ADVANC
+2026-02-01 19:00:38,398 - INFO - Manager: พบ 0 ข่าวสำหรับ ADVANC
+2026-02-01 19:00:41,400 - INFO - เริ่มดึงข่าว BANPU จากทุกแหล่ง...
+2026-02-01 19:00:52,011 - INFO - Kaohoon: พบ 2 ข่าวสำหรับ BANPU
+2026-02-01 19:00:52,562 - INFO - SET: พบ 0 ข่าวสำหรับ BANPU
+2026-02-01 19:00:52,728 - INFO - Investing: พบ 0 ข่าวสำหรับ BANPU
+2026-02-01 19:00:52,809 - INFO - Manager: พบ 0 ข่าวสำหรับ BANPU
+2026-02-01 19:00:53,790 - INFO - HTTP Request: POST https://ankvysfiennumjheouks.supabase.co/rest/v1/stock_news?on_conflict=symbol%2C+news_date%2C+title&columns=%22url%22%2C%22summary%22%2C%22source%22%2C%22news_date%22%2C%22symbol%22%2C%22category%22%2C%22title%22 "HTTP/2 200 OK"
+2026-02-01 19:00:53,804 - INFO - นำเข้า 2 ข่าวสำหรับ BANPU จากทุกแหล่งสำเร็จ
+2026-02-01 19:00:53,805 - INFO -   - Kaohoon: BANPU-BPP วิ่ง! รับผู้ถือหุ้นไฟเขียวควบรวมกิจการ (2026-01-30)
+2026-02-01 19:00:53,805 - INFO -   - Kaohoon: BANPU ฉลุย! ผู้ถือหุ้นไฟเขียวควบ BPP เปิดทาง “สินนท์ ว่องกุศลกิจ” เพิ่มทุน (2026-01-29)
+2026-02-01 19:00:56,806 - INFO - เริ่มดึงข่าว BBL จากทุกแหล่ง...
+2026-02-01 19:01:08,920 - INFO - Kaohoon: พบ 0 ข่าวสำหรับ BBL
+2026-02-01 19:01:09,595 - INFO - SET: พบ 0 ข่าวสำหรับ BBL
+2026-02-01 19:01:09,763 - INFO - Investing: พบ 0 ข่าวสำหรับ BBL
+2026-02-01 19:01:09,857 - INFO - Manager: พบ 0 ข่าวสำหรับ BBL
+2026-02-01 19:01:12,858 - INFO - เริ่มดึงข่าว BCP จากทุกแหล่ง...
+2026-02-01 19:01:23,418 - INFO - Kaohoon: พบ 1 ข่าวสำหรับ BCP
+2026-02-01 19:01:24,098 - INFO - SET: พบ 0 ข่าวสำหรับ BCP
+2026-02-01 19:01:24,311 - INFO - Investing: พบ 0 ข่าวสำหรับ BCP
+2026-02-01 19:01:24,391 - INFO - Manager: พบ 0 ข่าวสำหรับ BCP
+2026-02-01 19:01:24,657 - INFO - HTTP Request: POST https://ankvysfiennumjheouks.supabase.co/rest/v1/stock_news?on_conflict=symbol%2C+news_date%2C+title&columns=%22url%22%2C%22summary%22%2C%22source%22%2C%22news_date%22%2C%22symbol%22%2C%22category%22%2C%22title%22 "HTTP/2 200 OK"
+2026-02-01 19:01:24,659 - INFO - นำเข้า 1 ข่าวสำหรับ BCP จากทุกแหล่งสำเร็จ
+2026-02-01 19:01:24,659 - INFO -   - Kaohoon: ฐกฤต ชี้ SET แนวต้านสำคัญ 1,345 จุด ผ่านได้ไปต่อ แนะเก็บหุ้น “บิ๊กแคป” กำไรเด่น–ปันผลดี (2026-01-29)
+2026-02-01 19:01:27,660 - INFO - เริ่มดึงข่าว BDMS จากทุกแหล่ง...
+2026-02-01 19:01:38,883 - INFO - Kaohoon: พบ 0 ข่าวสำหรับ BDMS
+2026-02-01 19:01:39,436 - INFO - SET: พบ 0 ข่าวสำหรับ BDMS
+2026-02-01 19:01:39,620 - INFO - Investing: พบ 0 ข่าวสำหรับ BDMS
+2026-02-01 19:01:39,703 - INFO - Manager: พบ 0 ข่าวสำหรับ BDMS
+2026-02-01 19:01:42,704 - INFO - เริ่มดึงข่าว BEM จากทุกแหล่ง...
+2026-02-01 19:01:54,459 - INFO - Kaohoon: พบ 0 ข่าวสำหรับ BEM
+2026-02-01 19:01:54,998 - INFO - SET: พบ 0 ข่าวสำหรับ BEM
+2026-02-01 19:01:55,199 - INFO - Investing: พบ 0 ข่าวสำหรับ BEM
+2026-02-01 19:01:55,275 - INFO - Manager: พบ 0 ข่าวสำหรับ BEM
+2026-02-01 19:01:58,276 - INFO - เริ่มดึงข่าว BGRIM จากทุกแหล่ง...
+2026-02-01 19:02:10,630 - INFO - Kaohoon: พบ 2 ข่าวสำหรับ BGRIM
+2026-02-01 19:02:11,174 - INFO - SET: พบ 0 ข่าวสำหรับ BGRIM
+2026-02-01 19:02:11,335 - INFO - Investing: พบ 0 ข่าวสำหรับ BGRIM
+2026-02-01 19:02:11,412 - INFO - Manager: พบ 0 ข่าวสำหรับ BGRIM
+2026-02-01 19:02:11,727 - INFO - HTTP Request: POST https://ankvysfiennumjheouks.supabase.co/rest/v1/stock_news?on_conflict=symbol%2C+news_date%2C+title&columns=%22url%22%2C%22summary%22%2C%22source%22%2C%22news_date%22%2C%22symbol%22%2C%22category%22%2C%22title%22 "HTTP/2 200 OK"
+2026-02-01 19:02:11,729 - INFO - นำเข้า 2 ข่าวสำหรับ BGRIM จากทุกแหล่งสำเร็จ
+2026-02-01 19:02:11,730 - INFO -   - Kaohoon: BGRIM บวก 2% กางแผนปี 69 ทุ่ม 1.5 หมื่นล. ลุยดาต้าเซ็นเตอร์-วินด์ฟาร์ม ดันกำลังผลิต 10 GW (2026-01-30)
+2026-02-01 19:02:11,731 - INFO -   - Kaohoon: BGRIM ชูกลยุทธ์ GreenLeap รุก Digital Infra รับเทรนด์ AI จ่อ COD วินด์ฟาร์มเกาหลีปีนี้ (2026-01-30)
+2026-02-01 19:02:14,732 - INFO - เริ่มดึงข่าว BTS จากทุกแหล่ง...
+2026-02-01 19:02:14,818 - WARNING - Kaohoon RSS Error สำหรับ BTS: <urlopen error [WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions>
+2026-02-01 19:02:15,303 - INFO - SET: พบ 0 ข่าวสำหรับ BTS
+2026-02-01 19:02:15,486 - INFO - Investing: พบ 0 ข่าวสำหรับ BTS
+2026-02-01 19:02:15,562 - INFO - Manager: พบ 0 ข่าวสำหรับ BTS
+2026-02-01 19:02:18,564 - INFO - เริ่มดึงข่าว CBG จากทุกแหล่ง...
+2026-02-01 19:02:18,603 - WARNING - Kaohoon RSS Error สำหรับ CBG: <urlopen error [WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions>
+2026-02-01 19:02:19,074 - INFO - SET: พบ 0 ข่าวสำหรับ CBG
+2026-02-01 19:02:19,289 - INFO - Investing: พบ 0 ข่าวสำหรับ CBG
+2026-02-01 19:02:19,366 - INFO - Manager: พบ 0 ข่าวสำหรับ CBG
+2026-02-01 19:02:22,367 - INFO - เริ่มดึงข่าว CPALL จากทุกแหล่ง...
+2026-02-01 19:02:22,425 - WARNING - Kaohoon RSS Error สำหรับ CPALL: <urlopen error [WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions>
+2026-02-01 19:02:23,084 - INFO - SET: พบ 0 ข่าวสำหรับ CPALL
+2026-02-01 19:02:23,258 - INFO - Investing: พบ 0 ข่าวสำหรับ CPALL
+2026-02-01 19:02:23,357 - INFO - Manager: พบ 0 ข่าวสำหรับ CPALL
+2026-02-01 19:02:26,358 - INFO - เริ่มดึงข่าว CPF จากทุกแหล่ง...
+2026-02-01 19:02:26,402 - WARNING - Kaohoon RSS Error สำหรับ CPF: <urlopen error [WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions>
+2026-02-01 19:02:27,095 - INFO - SET: พบ 0 ข่าวสำหรับ CPF
+2026-02-01 19:02:27,282 - INFO - Investing: พบ 0 ข่าวสำหรับ CPF
+2026-02-01 19:02:27,357 - INFO - Manager: พบ 0 ข่าวสำหรับ CPF
+2026-02-01 19:02:30,358 - INFO - เริ่มดึงข่าว CPN จากทุกแหล่ง...
+2026-02-01 19:02:30,395 - WARNING - Kaohoon RSS Error สำหรับ CPN: <urlopen error [WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions>
+2026-02-01 19:02:30,664 - INFO - SET: พบ 0 ข่าวสำหรับ CPN
+2026-02-01 19:02:30,840 - INFO - Investing: พบ 0 ข่าวสำหรับ CPN
+2026-02-01 19:02:30,926 - INFO - Manager: พบ 0 ข่าวสำหรับ CPN
+2026-02-01 19:02:33,927 - INFO - เริ่มดึงข่าว DELTA จากทุกแหล่ง...
+2026-02-01 19:02:33,980 - WARNING - Kaohoon RSS Error สำหรับ DELTA: <urlopen error [WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions>
+2026-02-01 19:02:34,695 - INFO - SET: พบ 0 ข่าวสำหรับ DELTA
+2026-02-01 19:02:34,877 - INFO - Investing: พบ 0 ข่าวสำหรับ DELTA
+2026-02-01 19:02:34,974 - INFO - Manager: พบ 0 ข่าวสำหรับ DELTA
+2026-02-01 19:02:37,975 - INFO - เริ่มดึงข่าว EA จากทุกแหล่ง...
+2026-02-01 19:02:38,012 - WARNING - Kaohoon RSS Error สำหรับ EA: <urlopen error [WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions>
+2026-02-01 19:02:38,546 - INFO - SET: พบ 0 ข่าวสำหรับ EA
+2026-02-01 19:02:38,717 - INFO - Investing: พบ 0 ข่าวสำหรับ EA
+2026-02-01 19:02:38,820 - INFO - Manager: พบ 0 ข่าวสำหรับ EA
+2026-02-01 19:02:41,821 - INFO - เริ่มดึงข่าว EGCO จากทุกแหล่ง...
+2026-02-01 19:02:41,851 - WARNING - Kaohoon RSS Error สำหรับ EGCO: <urlopen error [WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions>
+2026-02-01 19:02:42,392 - INFO - SET: พบ 0 ข่าวสำหรับ EGCO
+2026-02-01 19:02:42,558 - INFO - Investing: พบ 0 ข่าวสำหรับ EGCO
+2026-02-01 19:02:42,642 - INFO - Manager: พบ 0 ข่าวสำหรับ EGCO
+2026-02-01 19:02:45,643 - INFO - เริ่มดึงข่าว GLOBAL จากทุกแหล่ง...
+2026-02-01 19:02:45,680 - WARNING - Kaohoon RSS Error สำหรับ GLOBAL: <urlopen error [WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions>
+2026-02-01 19:02:46,348 - INFO - SET: พบ 0 ข่าวสำหรับ GLOBAL
+2026-02-01 19:02:46,578 - INFO - Investing: พบ 0 ข่าวสำหรับ GLOBAL
+2026-02-01 19:02:46,672 - INFO - Manager: พบ 0 ข่าวสำหรับ GLOBAL
+2026-02-01 19:02:49,673 - INFO - เริ่มดึงข่าว GPSC จากทุกแหล่ง...
+2026-02-01 19:02:49,729 - WARNING - Kaohoon RSS Error สำหรับ GPSC: <urlopen error [WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions>
+2026-02-01 19:02:50,122 - INFO - SET: พบ 0 ข่าวสำหรับ GPSC
+2026-02-01 19:02:50,285 - INFO - Investing: พบ 0 ข่าวสำหรับ GPSC
+2026-02-01 19:02:50,367 - INFO - Manager: พบ 0 ข่าวสำหรับ GPSC
+2026-02-01 19:02:53,369 - INFO - เริ่มดึงข่าว GULF จากทุกแหล่ง...
+2026-02-01 19:02:53,414 - WARNING - Kaohoon RSS Error สำหรับ GULF: <urlopen error [WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions>
+2026-02-01 19:02:54,333 - INFO - SET: พบ 0 ข่าวสำหรับ GULF
+2026-02-01 19:02:54,494 - INFO - Investing: พบ 0 ข่าวสำหรับ GULF
+2026-02-01 19:02:54,566 - INFO - Manager: พบ 0 ข่าวสำหรับ GULF
+2026-02-01 19:02:57,567 - INFO - เริ่มดึงข่าว HMPRO จากทุกแหล่ง...
+2026-02-01 19:02:57,635 - WARNING - Kaohoon RSS Error สำหรับ HMPRO: <urlopen error [WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions>
+2026-02-01 19:02:58,060 - INFO - SET: พบ 0 ข่าวสำหรับ HMPRO
+2026-02-01 19:02:58,233 - INFO - Investing: พบ 0 ข่าวสำหรับ HMPRO
+2026-02-01 19:02:58,313 - INFO - Manager: พบ 0 ข่าวสำหรับ HMPRO
+2026-02-01 19:03:01,314 - INFO - เริ่มดึงข่าว INTUCH จากทุกแหล่ง...
+2026-02-01 19:03:01,356 - WARNING - Kaohoon RSS Error สำหรับ INTUCH: <urlopen error [WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions>
+2026-02-01 19:03:01,945 - INFO - SET: พบ 0 ข่าวสำหรับ INTUCH
+2026-02-01 19:03:02,125 - INFO - Investing: พบ 0 ข่าวสำหรับ INTUCH
+2026-02-01 19:03:02,202 - INFO - Manager: พบ 0 ข่าวสำหรับ INTUCH
+2026-02-01 19:03:05,203 - INFO - เริ่มดึงข่าว IRPC จากทุกแหล่ง...
+2026-02-01 19:03:05,246 - WARNING - Kaohoon RSS Error สำหรับ IRPC: <urlopen error [WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions>
+2026-02-01 19:03:05,609 - INFO - SET: พบ 0 ข่าวสำหรับ IRPC
+2026-02-01 19:03:05,820 - INFO - Investing: พบ 0 ข่าวสำหรับ IRPC
+2026-02-01 19:03:05,894 - INFO - Manager: พบ 0 ข่าวสำหรับ IRPC
+2026-02-01 19:03:08,895 - INFO - เริ่มดึงข่าว IVL จากทุกแหล่ง...
+2026-02-01 19:03:08,950 - WARNING - Kaohoon RSS Error สำหรับ IVL: <urlopen error [WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions>
+2026-02-01 19:03:09,267 - INFO - SET: พบ 0 ข่าวสำหรับ IVL
+2026-02-01 19:03:09,460 - INFO - Investing: พบ 0 ข่าวสำหรับ IVL
+2026-02-01 19:03:09,557 - INFO - Manager: พบ 0 ข่าวสำหรับ IVL
+2026-02-01 19:03:12,558 - INFO - เริ่มดึงข่าว KBANK จากทุกแหล่ง...
+2026-02-01 19:03:12,600 - WARNING - Kaohoon RSS Error สำหรับ KBANK: <urlopen error [WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions>
+2026-02-01 19:03:13,136 - INFO - SET: พบ 0 ข่าวสำหรับ KBANK
+2026-02-01 19:03:13,350 - INFO - Investing: พบ 0 ข่าวสำหรับ KBANK
+2026-02-01 19:03:13,428 - INFO - Manager: พบ 0 ข่าวสำหรับ KBANK
+2026-02-01 19:03:16,429 - INFO - เริ่มดึงข่าว KCE จากทุกแหล่ง...
+2026-02-01 19:03:16,469 - WARNING - Kaohoon RSS Error สำหรับ KCE: <urlopen error [WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions>
+2026-02-01 19:03:16,772 - INFO - SET: พบ 0 ข่าวสำหรับ KCE
+2026-02-01 19:03:16,953 - INFO - Investing: พบ 0 ข่าวสำหรับ KCE
+2026-02-01 19:03:17,037 - INFO - Manager: พบ 0 ข่าวสำหรับ KCE
+2026-02-01 19:03:20,039 - INFO - เริ่มดึงข่าว KTB จากทุกแหล่ง...
+2026-02-01 19:03:20,081 - WARNING - Kaohoon RSS Error สำหรับ KTB: <urlopen error [WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions>
+2026-02-01 19:03:20,668 - INFO - SET: พบ 0 ข่าวสำหรับ KTB
+2026-02-01 19:03:20,829 - INFO - Investing: พบ 0 ข่าวสำหรับ KTB
+2026-02-01 19:03:20,927 - INFO - Manager: พบ 0 ข่าวสำหรับ KTB
+2026-02-01 19:03:23,928 - INFO - เริ่มดึงข่าว KTC จากทุกแหล่ง...
+2026-02-01 19:03:23,986 - WARNING - Kaohoon RSS Error สำหรับ KTC: <urlopen error [WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions>
+2026-02-01 19:03:25,341 - INFO - SET: พบ 0 ข่าวสำหรับ KTC
+2026-02-01 19:03:25,540 - INFO - Investing: พบ 0 ข่าวสำหรับ KTC
+2026-02-01 19:03:25,622 - INFO - Manager: พบ 0 ข่าวสำหรับ KTC
+2026-02-01 19:03:28,623 - INFO - เริ่มดึงข่าว MINT จากทุกแหล่ง...
+2026-02-01 19:03:28,660 - WARNING - Kaohoon RSS Error สำหรับ MINT: <urlopen error [WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions>
+2026-02-01 19:03:29,065 - INFO - SET: พบ 0 ข่าวสำหรับ MINT
+2026-02-01 19:03:29,223 - INFO - Investing: พบ 0 ข่าวสำหรับ MINT
+2026-02-01 19:03:29,295 - INFO - Manager: พบ 0 ข่าวสำหรับ MINT
+2026-02-01 19:03:32,296 - INFO - เริ่มดึงข่าว MTC จากทุกแหล่ง...
+2026-02-01 19:03:32,347 - WARNING - Kaohoon RSS Error สำหรับ MTC: <urlopen error [WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions>
+2026-02-01 19:03:32,712 - INFO - SET: พบ 0 ข่าวสำหรับ MTC
+2026-02-01 19:03:32,918 - INFO - Investing: พบ 0 ข่าวสำหรับ MTC
+2026-02-01 19:03:32,999 - INFO - Manager: พบ 0 ข่าวสำหรับ MTC
+2026-02-01 19:03:36,000 - INFO - เริ่มดึงข่าว OR จากทุกแหล่ง...
+2026-02-01 19:03:36,051 - WARNING - Kaohoon RSS Error สำหรับ OR: <urlopen error [WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions>
+2026-02-01 19:03:36,695 - INFO - SET: พบ 0 ข่าวสำหรับ OR
+2026-02-01 19:03:36,858 - INFO - Investing: พบ 0 ข่าวสำหรับ OR
+2026-02-01 19:03:36,943 - INFO - Manager: พบ 0 ข่าวสำหรับ OR
+2026-02-01 19:03:39,944 - INFO - เริ่มดึงข่าว OSP จากทุกแหล่ง...
+2026-02-01 19:03:39,999 - WARNING - Kaohoon RSS Error สำหรับ OSP: <urlopen error [WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions>
+2026-02-01 19:03:40,537 - INFO - SET: พบ 0 ข่าวสำหรับ OSP
+2026-02-01 19:03:40,741 - INFO - Investing: พบ 0 ข่าวสำหรับ OSP
+2026-02-01 19:03:40,815 - INFO - Manager: พบ 0 ข่าวสำหรับ OSP
+2026-02-01 19:03:43,817 - INFO - เริ่มดึงข่าว PTT จากทุกแหล่ง...
+2026-02-01 19:03:43,879 - WARNING - Kaohoon RSS Error สำหรับ PTT: <urlopen error [WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions>
+2026-02-01 19:03:44,507 - INFO - SET: พบ 0 ข่าวสำหรับ PTT
+2026-02-01 19:03:44,691 - INFO - Investing: พบ 0 ข่าวสำหรับ PTT
+2026-02-01 19:03:44,778 - INFO - Manager: พบ 0 ข่าวสำหรับ PTT
+2026-02-01 19:03:47,779 - INFO - เริ่มดึงข่าว PTTEP จากทุกแหล่ง...
+2026-02-01 19:03:47,823 - WARNING - Kaohoon RSS Error สำหรับ PTTEP: <urlopen error [WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions>
+2026-02-01 19:03:48,516 - INFO - SET: พบ 0 ข่าวสำหรับ PTTEP
+2026-02-01 19:03:48,699 - INFO - Investing: พบ 0 ข่าวสำหรับ PTTEP
+2026-02-01 19:03:48,809 - INFO - Manager: พบ 0 ข่าวสำหรับ PTTEP
+2026-02-01 19:03:51,810 - INFO - เริ่มดึงข่าว PTTGC จากทุกแหล่ง...
+2026-02-01 19:03:51,862 - WARNING - Kaohoon RSS Error สำหรับ PTTGC: <urlopen error [WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions>
+2026-02-01 19:03:52,302 - INFO - SET: พบ 0 ข่าวสำหรับ PTTGC
+2026-02-01 19:03:52,490 - INFO - Investing: พบ 0 ข่าวสำหรับ PTTGC
+2026-02-01 19:03:52,579 - INFO - Manager: พบ 0 ข่าวสำหรับ PTTGC
+2026-02-01 19:03:55,580 - INFO - เริ่มดึงข่าว SAWAD จากทุกแหล่ง...
+2026-02-01 19:04:06,528 - INFO - Kaohoon: พบ 0 ข่าวสำหรับ SAWAD
+2026-02-01 19:04:07,125 - INFO - SET: พบ 0 ข่าวสำหรับ SAWAD
+2026-02-01 19:04:07,311 - INFO - Investing: พบ 0 ข่าวสำหรับ SAWAD
+2026-02-01 19:04:07,396 - INFO - Manager: พบ 0 ข่าวสำหรับ SAWAD
+2026-02-01 19:04:10,397 - INFO - เริ่มดึงข่าว SCB จากทุกแหล่ง...
+2026-02-01 19:04:21,121 - INFO - Kaohoon: พบ 2 ข่าวสำหรับ SCB
+2026-02-01 19:04:21,678 - INFO - SET: พบ 0 ข่าวสำหรับ SCB
+2026-02-01 19:04:21,898 - INFO - Investing: พบ 0 ข่าวสำหรับ SCB
+2026-02-01 19:04:21,990 - INFO - Manager: พบ 0 ข่าวสำหรับ SCB
+2026-02-01 19:04:22,482 - INFO - HTTP Request: POST https://ankvysfiennumjheouks.supabase.co/rest/v1/stock_news?on_conflict=symbol%2C+news_date%2C+title&columns=%22url%22%2C%22summary%22%2C%22source%22%2C%22news_date%22%2C%22symbol%22%2C%22category%22%2C%22title%22 "HTTP/2 200 OK"
+2026-02-01 19:04:22,485 - INFO - นำเข้า 2 ข่าวสำหรับ SCB จากทุกแหล่งสำเร็จ
+2026-02-01 19:04:22,486 - INFO -   - Kaohoon: SCB EIC เตือนเศรษฐกิจไทยปี 69 แผ่ว แรงกระตุ้นรัฐถดถอย-ส่งออกเสี่ยงหด (2026-01-30)
+2026-02-01 19:04:22,486 - INFO -   - Kaohoon: SCB Financial Markets คาดกรอบเงินบาท 31.30-31.55 บ./ดอลลาร์ (2026-01-30)
+2026-02-01 19:04:25,487 - INFO - เริ่มดึงข่าว SCC จากทุกแหล่ง...
+2026-02-01 19:04:37,176 - INFO - Kaohoon: พบ 2 ข่าวสำหรับ SCC
+2026-02-01 19:04:37,601 - INFO - SET: พบ 0 ข่าวสำหรับ SCC
+2026-02-01 19:04:38,047 - INFO - Investing: พบ 0 ข่าวสำหรับ SCC
+2026-02-01 19:04:38,141 - INFO - Manager: พบ 0 ข่าวสำหรับ SCC
+2026-02-01 19:04:38,306 - INFO - HTTP Request: POST https://ankvysfiennumjheouks.supabase.co/rest/v1/stock_news?on_conflict=symbol%2C+news_date%2C+title&columns=%22url%22%2C%22summary%22%2C%22source%22%2C%22news_date%22%2C%22symbol%22%2C%22category%22%2C%22title%22 "HTTP/2 200 OK"
+2026-02-01 19:04:38,308 - INFO - นำเข้า 2 ข่าวสำหรับ SCC จากทุกแหล่งสำเร็จ
+2026-02-01 19:04:38,309 - INFO -   - Kaohoon: อสังหาฯ จีนคลายล็อก กรุงศรีแนะสะสม IVL-PTTGC-SCC-SCGP รับบวก China Plays (2026-01-30)
+2026-02-01 19:04:38,309 - INFO -   - Kaohoon: “โรบอทเทรด” กินวอลุ่มตลาด 43% แรงขาย SCC กดราคาปิดลบ 6% (2026-01-29)
+2026-02-01 19:04:41,310 - INFO - เริ่มดึงข่าว SCGP จากทุกแหล่ง...
+2026-02-01 19:04:54,461 - INFO - Kaohoon: พบ 1 ข่าวสำหรับ SCGP
+2026-02-01 19:04:55,105 - INFO - SET: พบ 0 ข่าวสำหรับ SCGP
+2026-02-01 19:04:55,303 - INFO - Investing: พบ 0 ข่าวสำหรับ SCGP
+2026-02-01 19:04:55,412 - INFO - Manager: พบ 0 ข่าวสำหรับ SCGP
+2026-02-01 19:04:55,947 - INFO - HTTP Request: POST https://ankvysfiennumjheouks.supabase.co/rest/v1/stock_news?on_conflict=symbol%2C+news_date%2C+title&columns=%22url%22%2C%22summary%22%2C%22source%22%2C%22news_date%22%2C%22symbol%22%2C%22category%22%2C%22title%22 "HTTP/2 200 OK"
+2026-02-01 19:04:55,949 - INFO - นำเข้า 1 ข่าวสำหรับ SCGP จากทุกแหล่งสำเร็จ
+2026-02-01 19:04:55,949 - INFO -   - Kaohoon: อสังหาฯ จีนคลายล็อก กรุงศรีแนะสะสม IVL-PTTGC-SCC-SCGP รับบวก China Plays (2026-01-30)
+2026-02-01 19:04:58,950 - INFO - เริ่มดึงข่าว TISCO จากทุกแหล่ง...
+2026-02-01 19:05:11,137 - INFO - Kaohoon: พบ 0 ข่าวสำหรับ TISCO
+2026-02-01 19:05:11,837 - INFO - SET: พบ 0 ข่าวสำหรับ TISCO
+2026-02-01 19:05:12,014 - INFO - Investing: พบ 0 ข่าวสำหรับ TISCO
+2026-02-01 19:05:12,097 - INFO - Manager: พบ 0 ข่าวสำหรับ TISCO
+2026-02-01 19:05:15,099 - INFO - เริ่มดึงข่าว TOP จากทุกแหล่ง...
+2026-02-01 19:05:26,580 - INFO - Kaohoon: พบ 1 ข่าวสำหรับ TOP
+2026-02-01 19:05:27,791 - INFO - SET: พบ 0 ข่าวสำหรับ TOP
+2026-02-01 19:05:27,986 - INFO - Investing: พบ 0 ข่าวสำหรับ TOP
+2026-02-01 19:05:28,078 - INFO - Manager: พบ 0 ข่าวสำหรับ TOP
+2026-02-01 19:05:28,295 - INFO - HTTP Request: POST https://ankvysfiennumjheouks.supabase.co/rest/v1/stock_news?on_conflict=symbol%2C+news_date%2C+title&columns=%22url%22%2C%22summary%22%2C%22source%22%2C%22news_date%22%2C%22symbol%22%2C%22category%22%2C%22title%22 "HTTP/2 201 Created"
+2026-02-01 19:05:28,297 - INFO - นำเข้า 1 ข่าวสำหรับ TOP จากทุกแหล่งสำเร็จ
+2026-02-01 19:05:28,298 - INFO -   - Kaohoon: CENTEL–ERW เด่นรับตรุษจีน! ททท.ชี้เงินท่องเที่ยวสะพัด 4.2 หมื่นลบ. (2026-02-01)
+2026-02-01 19:05:31,299 - INFO - เริ่มดึงข่าว TRUE จากทุกแหล่ง...
+2026-02-01 19:05:42,558 - INFO - Kaohoon: พบ 5 ข่าวสำหรับ TRUE
+2026-02-01 19:05:43,137 - INFO - SET: พบ 0 ข่าวสำหรับ TRUE
+2026-02-01 19:05:43,335 - INFO - Investing: พบ 0 ข่าวสำหรับ TRUE
+2026-02-01 19:05:43,433 - INFO - Manager: พบ 0 ข่าวสำหรับ TRUE
+2026-02-01 19:05:43,639 - INFO - HTTP Request: POST https://ankvysfiennumjheouks.supabase.co/rest/v1/stock_news?on_conflict=symbol%2C+news_date%2C+title&columns=%22url%22%2C%22summary%22%2C%22source%22%2C%22news_date%22%2C%22symbol%22%2C%22category%22%2C%22title%22 "HTTP/2 200 OK"
+2026-02-01 19:05:43,641 - INFO - นำเข้า 5 ข่าวสำหรับ TRUE จากทุกแหล่งสำเร็จ
+2026-02-01 19:05:43,642 - INFO -   - Kaohoon: InnovestX จัดพอร์ตปี 69 แนะหุ้นนอกสหรัฐ เสริมตราสารหนี้–ทองคำ พ่วง 4 ธีมเด่นหุ้นไทย (2026-01-30)
+2026-02-01 19:05:43,642 - INFO -   - Kaohoon: สรุปกระดานรายใหญ่วันนี้ TRUE มูลค่าสูงสุด 1.64 พันล้านบาท (2026-01-30)
+2026-02-01 19:05:43,643 - INFO -   - Kaohoon: TRUE โผล่บิ๊กล็อต 1 พันล้านบาท ราคาเฉลี่ย 11.67 บ. ต่ำกว่ากระดาน 0.26% (2026-01-30)
+2026-02-01 19:05:43,643 - INFO -   - Kaohoon: สรุปกระดานรายใหญ่เช้านี้ TRUE มูลค่าสูงสุด 1 พันล้านบาท (2026-01-30)
+2026-02-01 19:05:43,644 - INFO -   - Kaohoon: TRUE บวกต่อ 2% โบรกชูเป้า 14.90 บาท ลุ้นกำไรปี 69 โตกระโดด 151% (2026-01-30)
+2026-02-01 19:05:46,644 - INFO - เริ่มดึงข่าว TTA จากทุกแหล่ง...
+2026-02-01 19:05:59,784 - INFO - Kaohoon: พบ 0 ข่าวสำหรับ TTA
+2026-02-01 19:06:00,919 - INFO - SET: พบ 0 ข่าวสำหรับ TTA
+2026-02-01 19:06:01,124 - INFO - Investing: พบ 0 ข่าวสำหรับ TTA
+2026-02-01 19:06:01,212 - INFO - Manager: พบ 0 ข่าวสำหรับ TTA
+2026-02-01 19:06:04,213 - INFO - เริ่มดึงข่าว TU จากทุกแหล่ง...
+2026-02-01 19:06:14,963 - INFO - Kaohoon: พบ 2 ข่าวสำหรับ TU
+2026-02-01 19:06:15,699 - INFO - SET: พบ 0 ข่าวสำหรับ TU
+2026-02-01 19:06:15,894 - INFO - Investing: พบ 0 ข่าวสำหรับ TU
+2026-02-01 19:06:15,980 - INFO - Manager: พบ 0 ข่าวสำหรับ TU
+2026-02-01 19:06:16,149 - INFO - HTTP Request: POST https://ankvysfiennumjheouks.supabase.co/rest/v1/stock_news?on_conflict=symbol%2C+news_date%2C+title&columns=%22url%22%2C%22summary%22%2C%22source%22%2C%22news_date%22%2C%22symbol%22%2C%22category%22%2C%22title%22 "HTTP/2 200 OK"
+2026-02-01 19:06:16,151 - INFO - นำเข้า 2 ข่าวสำหรับ TU จากทุกแหล่งสำเร็จ
+2026-02-01 19:06:16,152 - INFO -   - Kaohoon: เปิดโผหุ้น SET50 “เด่น-ดิ่ง” เดือนมกราคม! TU ท็อปฟอร์มพุ่ง 8.47% (2026-01-31)
+2026-02-01 19:06:16,152 - INFO -   - Kaohoon: InnovestX จัดพอร์ตปี 69 แนะหุ้นนอกสหรัฐ เสริมตราสารหนี้–ทองคำ พ่วง 4 ธีมเด่นหุ้นไทย (2026-01-30)
+2026-02-01 19:06:19,153 - INFO - เริ่มดึงข่าว VGI จากทุกแหล่ง...
+2026-02-01 19:06:30,490 - INFO - Kaohoon: พบ 0 ข่าวสำหรับ VGI
+2026-02-01 19:06:30,833 - INFO - SET: พบ 0 ข่าวสำหรับ VGI
+2026-02-01 19:06:31,014 - INFO - Investing: พบ 0 ข่าวสำหรับ VGI
+2026-02-01 19:06:31,096 - INFO - Manager: พบ 0 ข่าวสำหรับ VGI
+2026-02-01 19:06:34,098 - INFO - เริ่มดึงข่าว WHA จากทุกแหล่ง...
+2026-02-01 19:06:44,934 - INFO - Kaohoon: พบ 1 ข่าวสำหรับ WHA
+2026-02-01 19:06:45,463 - INFO - SET: พบ 0 ข่าวสำหรับ WHA
+2026-02-01 19:06:45,639 - INFO - Investing: พบ 0 ข่าวสำหรับ WHA
+2026-02-01 19:06:45,726 - INFO - Manager: พบ 0 ข่าวสำหรับ WHA
+2026-02-01 19:06:46,245 - INFO - HTTP Request: POST https://ankvysfiennumjheouks.supabase.co/rest/v1/stock_news?on_conflict=symbol%2C+news_date%2C+title&columns=%22url%22%2C%22summary%22%2C%22source%22%2C%22news_date%22%2C%22symbol%22%2C%22category%22%2C%22title%22 "HTTP/2 200 OK"
+2026-02-01 19:06:46,247 - INFO - นำเข้า 1 ข่าวสำหรับ WHA จากทุกแหล่งสำเร็จ
+2026-02-01 19:06:46,248 - INFO -   - Kaohoon: เปิด 20 อันดับหุ้นถูก “Cover-Short” สูงสุด ณ 29 ม.ค.69 (2026-01-30)
+2026-02-01 19:06:49,249 - INFO - เริ่มดึงข่าว AMATA จากทุกแหล่ง...
+2026-02-01 19:07:00,817 - INFO - Kaohoon: พบ 0 ข่าวสำหรับ AMATA
+2026-02-01 19:07:01,286 - INFO - SET: พบ 0 ข่าวสำหรับ AMATA
+2026-02-01 19:07:01,479 - INFO - Investing: พบ 0 ข่าวสำหรับ AMATA
+2026-02-01 19:07:01,571 - INFO - Manager: พบ 0 ข่าวสำหรับ AMATA
+2026-02-01 19:07:04,572 - INFO - เริ่มดึงข่าว BCH จากทุกแหล่ง...
+2026-02-01 19:07:15,611 - INFO - Kaohoon: พบ 0 ข่าวสำหรับ BCH
+2026-02-01 19:07:16,259 - INFO - SET: พบ 0 ข่าวสำหรับ BCH
+2026-02-01 19:07:16,714 - INFO - Investing: พบ 0 ข่าวสำหรับ BCH
+2026-02-01 19:07:16,791 - INFO - Manager: พบ 0 ข่าวสำหรับ BCH
+2026-02-01 19:07:19,793 - INFO - เริ่มดึงข่าว CRC จากทุกแหล่ง...
+2026-02-01 19:07:19,825 - WARNING - Kaohoon RSS Error สำหรับ CRC: <urlopen error [WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions>
+2026-02-01 19:07:20,106 - INFO - SET: พบ 0 ข่าวสำหรับ CRC
+2026-02-01 19:07:20,314 - INFO - Investing: พบ 0 ข่าวสำหรับ CRC
+2026-02-01 19:07:20,392 - INFO - Manager: พบ 0 ข่าวสำหรับ CRC
+2026-02-01 19:07:23,393 - INFO - เริ่มดึงข่าว JMT จากทุกแหล่ง...
+2026-02-01 19:07:23,444 - WARNING - Kaohoon RSS Error สำหรับ JMT: <urlopen error [WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions>
+2026-02-01 19:07:24,187 - INFO - SET: พบ 0 ข่าวสำหรับ JMT
+2026-02-01 19:07:24,373 - INFO - Investing: พบ 0 ข่าวสำหรับ JMT
+2026-02-01 19:07:24,477 - INFO - Manager: พบ 0 ข่าวสำหรับ JMT
+2026-02-01 19:07:27,490 - INFO - 
+สรุปการอัพเดตวันนี้: นำเข้าข่าวทั้งหมด 20 ข่าวจาก 49 หุ้น
+2026-02-01 19:07:27,492 - INFO - อัพเดตเสร็จสิ้น
